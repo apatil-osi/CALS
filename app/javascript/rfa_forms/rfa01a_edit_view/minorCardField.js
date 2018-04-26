@@ -8,6 +8,7 @@ import {getDictionaryId, dictionaryNilSelect, dictionaryNilSelectValue, FormatDa
 import {yesNo} from 'constants/constants'
 import {setToWhomOptionList, handleToWhomValue, checkRelationshipFreeformPresence} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
+import YesNoRadioComponent from 'components/common/yesNoFields'
 import {fieldErrorsAsImmutableSet} from 'helpers/validationHelper.jsx'
 
 const dateValidator = {rule: 'isValidDate', message: 'date is invalid'}
@@ -91,6 +92,32 @@ export class MinorCardField extends React.Component {
           value={getDictionaryId(minor.gender)}
           label={isRelationShipToApplicantObject ? 'Gender (required)' : 'Gender'}
           onChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelect(event.target.options), 'gender')} />
+        <div>
+          <YesNoRadioComponent
+            label={isRelationShipToApplicantObject ? 'Do you financially support this child? (required)' : 'Do you financially support this child?'}
+            idPrefix='child_financially_supported'
+            value={minor.child_financially_supported}
+            selectClassName={'reusable-select'}
+            optionList={yesNo.items}
+            onFieldChange={(event) => this.props.setParentState('child_financially_supported', event.target.value)} />
+        </div>
+
+         <div>
+          <YesNoRadioComponent
+            idPrefix='child_adopted'
+            value={minor.child_adopted}
+            selectClassName={'reusable-select'}
+            optionList={yesNo.items}
+            label={isRelationShipToApplicantObject ? 'Is this child adopted? (required)' : 'Is this child adopted?'}
+          
+            onFieldChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelectValue(event.target.value), 'child_adopted')} />
+         </div>
+
+
+
+
+
+
         <DropDownField gridClassName='col-md-4'
           id='child_financially_supported'
           value={minor.child_financially_supported}
@@ -121,6 +148,6 @@ MinorCardField.propTypes = {
 }
 
 MinorCardField.defaultProps = {
-  idPrefix: '',
+  idPrefix: 'residence.',
   errors: {}
 }
