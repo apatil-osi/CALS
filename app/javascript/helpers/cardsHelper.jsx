@@ -87,11 +87,11 @@ export const setToWhomOptionList = (applicants) => {
   return newApplicants
 }
 
-export const handleRelationshipTypeToApplicant = (index, value, type, items) => {
-  let itemsList = Immutable.fromJS(items)
-  itemsList = itemsList.setIn([index, 'relationship_to_applicants', 0, type], value)
-  return itemsList.toJS()
-}
+// export const handleRelationshipTypeToApplicant = (index, subIndex, value, type, items) => {
+//   let itemsList = Immutable.fromJS(items)
+//   itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
+//   return itemsList.toJS()
+// }
 
 export const handleToWhomValue = (applicantId, applicants) => {
   let newApplicants = {id: '', value: ''}
@@ -115,8 +115,8 @@ export const checkForNameValidation = (applicantData) => {
   return validationResult
 }
 
-export const checkRelationshipFreeformPresence = (relationshipObject) => {
-  return (relationshipObject && relationshipObject.relationship_to_applicants[0]) ? relationshipObject.relationship_to_applicants[0].relationship_to_applicant_freeform : ''
+export const checkRelationshipFreeformPresence = (relationshipObject, index) => {
+  return (relationshipObject && relationshipObject.relationship_to_applicants[index]) ? relationshipObject.relationship_to_applicants[index].relationship_to_applicant_freeform : ''
 }
 
 // export const checkFieldsForSubmit = (application) => {

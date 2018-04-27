@@ -7,6 +7,11 @@ import Validator from 'helpers/validator'
 describe('Verify minor children Component View', function () {
   let component, componentMount, setFocusStateSpy, onFieldChangeSpy
   let props, handleRelationshipTypeToApplicantSpy, validator, componentToDelete
+  const applicants = [{
+    first_name: 'gdfghfhgv',
+    last_name: 'hgbhg',
+    middle_name: ''
+  }]
   let minorCardChild = {
     gender: {
       'id': 0,
@@ -15,6 +20,8 @@ describe('Verify minor children Component View', function () {
     relationship_to_applicants: [
       {
         applicant_id: null,
+        child_financially_supported: false,
+        child_adopted: 'yes',
         relationship_to_applicant_freeform: '',
         relationship_to_applicant: {
           'id': 0,
@@ -22,8 +29,6 @@ describe('Verify minor children Component View', function () {
         }
       }
     ],
-    child_financially_supported: false,
-    child_adopted: 'yes',
     date_of_birth: '2017-01-01'
   }
 
@@ -36,6 +41,8 @@ describe('Verify minor children Component View', function () {
     relationship_to_applicants: [
       {
         applicant_id: null,
+        child_financially_supported: false,
+        child_adopted: 'yes',
         relationship_to_applicant_freeform: '',
         relationship_to_applicant: {
           'id': 0,
@@ -43,8 +50,6 @@ describe('Verify minor children Component View', function () {
         }
       }
     ],
-    child_financially_supported: false,
-    child_adopted: 'yes',
     date_of_birth: '2017-01-01'
   }
 
@@ -59,6 +64,7 @@ describe('Verify minor children Component View', function () {
   beforeEach(() => {
     props = {
       minorChildren: [minorCardChild],
+      applicants: applicants,
       genderTypes: genderTypes.items,
       relationshipTypes: relationshipTypes,
       relationshipToApplicantTypes: relationshipTypes,
@@ -75,6 +81,7 @@ describe('Verify minor children Component View', function () {
     componentToDelete = mount(<MinorCardsGroup
       minorChildren={[minorCardChildToDelete]}
       genderTypes={genderTypes.items}
+      applicants={applicants}
       relationshipTypes={relationshipTypes}
       relationshipToApplicantTypes={relationshipTypes}
       setParentState={setParentStateSpy}
@@ -96,7 +103,7 @@ describe('Verify minor children Component View', function () {
       componentMount.update()
       spyOn(componentMount.instance(), 'handleRelationshipTypeToApplicant').and.callThrough()
 
-      let relationShipField = componentMount.findWhere(n => n.props().id === 'minor_children[0].relationship_to_applicant_freeform').hostNodes()
+      let relationShipField = componentMount.find('.col-md-12').first().find('#relationship_to_applicant0person0relationship_to_applicant_freeform').hostNodes()
       relationShipField.simulate('change', {target: {value: 'Sibling'}})
 
       minorCardChild.relationship_to_applicants[0].relationship_to_applicant_freeform = 'Sibling'
@@ -109,7 +116,7 @@ describe('Verify minor children Component View', function () {
     it('tests onFieldChange', () => {
       componentMount.update()
       spyOn(componentMount.instance(), 'onFieldChange').and.callThrough()
-      let childFinanciallySupported = componentMount.find('#child_financially_supported').hostNodes()
+      let childFinanciallySupported = componentMount.find('.col-md-12').first().find('#child_financially_supported').hostNodes()
       childFinanciallySupported.simulate('change', selectedYes)
       minorCardChild.child_financially_supported = '2'
       expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorCardChild])
@@ -124,7 +131,7 @@ describe('Verify minor children Component View', function () {
       expect(component.children.length).toEqual(1)
     })
     it('expects six validations', function () {
-      expect(component.instance().props.validator.validations.size).toEqual(6)
+      expect(component.instance().props.validator.validations.size).toEqual(5)
     })
   })
 

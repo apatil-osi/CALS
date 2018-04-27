@@ -6,7 +6,7 @@ require 'faker'
 
 RSpec.feature 'RFA01A', js: true do
 
-  before(:each) do 
+  before(:each) do
     visit root_path
 	end
 	scenario 'Dashboard page', set_auth_header: true do
@@ -114,9 +114,9 @@ RSpec.feature 'RFA01A', js: true do
     page.find(:css, '#react-select-4--option-1').click
     expect(page).to have_button('Submit', disabled: false)
     expect(page).to have_content 'IV. Minor Children Residing in the Home'
-    fill_in('minor_children[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
+
+    fill_in('relationship_to_applicant0person0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
     expect(page).to have_button('Submit', disabled: true)
-    select 'Geovanni Moen', from: 'applicant_id'
     fill_in('minor_children[0].date_of_birth', with: '11/11/1111', match: :prefer_exact)
     select 'Yes', from: 'child_financially_supported'
     select 'Yes', from: 'child_adopted'
@@ -124,7 +124,6 @@ RSpec.feature 'RFA01A', js: true do
     expect(page).to have_button('Submit', disabled: false)
     fill_in('other_adults[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
     expect(page).to have_button('Submit', disabled: true)
-    select 'Geovanni Moen', from: 'other_adults[0].availableApplicants'
     fill_in('other_adults[0].date_of_birth', with: '12/12/1211', match: :prefer_exact)
     fill_in('other_adults[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
     expect(page).to have_button('Submit', disabled: true)
@@ -316,16 +315,14 @@ RSpec.feature 'RFA01A', js: true do
     fill_in('applicants[0].middle_name', with: 'k', match: :prefer_exact)
     fill_in('applicants[0].last_name', with: applicant_1_last_name, match: :prefer_exact)
     expect(page).to have_content 'IV. Minor Children Residing in the Home'
-    fill_in('minor_children[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
-    select applicant_1_full_name, from: 'applicant_id'
+
+    fill_in('relationship_to_applicant0person0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
     select 'Yes', from: 'child_financially_supported'
     select 'Yes', from: 'child_adopted'
     select 'Male', from: 'minor_gender'
     click_button('Save Progress')
     visit page.driver.current_url
-    expect(find_field('minor_children[0].relationship_to_applicant_freeform').value).to eq 'child'
-    applicant_id_value = find(:select, 'applicant_id').value
-    expect(find_field('applicant_id').value).to eq applicant_id_value
+    expect(find_field('relationship_to_applicant0person0relationship_to_applicant_freeform').value).to eq 'child'
   end
 
   scenario 'validate Other Adults card', set_auth_header: true do
@@ -340,18 +337,16 @@ RSpec.feature 'RFA01A', js: true do
     fill_in('applicants[0].first_name', with: applicant_1_first_name, match: :prefer_exact)
     fill_in('applicants[0].middle_name', with: 'k', match: :prefer_exact)
     fill_in('applicants[0].last_name', with: applicant_1_last_name, match: :prefer_exact)
-    select applicant_1_full_name, from: 'other_adults[0].availableApplicants'
     expect(page).to have_content 'V.Other Adults Residing or Regularly Present in the Home'
 
-    fill_in('other_adults[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
+    fill_in('otherAdultsrelationship_to_applicants0person0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
 
     fill_in('other_adults[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
     click_button('Save Progress')
     visit page.driver.current_url
 
-    expect(find_field('other_adults[0].relationship_to_applicant_freeform').value).to eq 'child'
-    availableApplicantId = find_field('other_adults[0].availableApplicants').value
-    expect(find_field('other_adults[0].availableApplicants').value).to eq availableApplicantId
+    expect(find_field('otherAdultsrelationship_to_applicants0person0relationship_to_applicant_freeform').value).to eq 'child'
+
   end
 
   scenario 'validate Marital History card', set_auth_header: true do

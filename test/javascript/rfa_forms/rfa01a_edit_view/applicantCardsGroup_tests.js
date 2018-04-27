@@ -12,6 +12,8 @@ describe('Verify Applicant Card Group', () => {
   let setApplicantsStateSpy = jasmine.createSpy('setApplicantsState')
   const isApplicantAdded = sinon.spy()
   const getFocusClassNameSpy = sinon.spy()
+  let handleAppRelationshipsOnAddApplicantSpy = sinon.spy()
+  let handleAppRelationshipsOnRemoveApplicantSpy = sinon.spy()
   let applicants = Immutable.fromJS([{
     to_delete: true,
     first_name: '',
@@ -36,7 +38,10 @@ describe('Verify Applicant Card Group', () => {
     languageTypes: languageTypes.items,
     setParentState: isApplicantAdded,
     validator: new Validator({}),
-    getFocusClassName: getFocusClassNameSpy
+    getFocusClassName: getFocusClassNameSpy,
+    handleAppRelationshipsOnAddApplicant: handleAppRelationshipsOnAddApplicantSpy,
+    handleAppRelationshipsOnRemoveApplicant: handleAppRelationshipsOnRemoveApplicantSpy
+
   }
   let applicantRender = TestUtils.renderIntoDocument(<ApplicantCardsGroup {...props} />)
   let renderedDOM = (componentToRender) => ReactDOM.findDOMNode(componentToRender)

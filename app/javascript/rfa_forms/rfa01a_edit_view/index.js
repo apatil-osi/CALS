@@ -34,6 +34,8 @@ export default class Rfa01EditView extends React.Component {
     this.handleNavLinkClick = this.handleNavLinkClick.bind(this)
     this.isNavLinkActive = this.isNavLinkActive.bind(this)
     this.validateAllRequiredForSubmit = this.validateAllRequiredForSubmit.bind(this)
+    this.handleAppRelationshipsOnAddApplicant = this.handleAppRelationshipsOnAddApplicant.bind(this)
+    this.handleAppRelationshipsOnRemoveApplicant = this.handleAppRelationshipsOnRemoveApplicant.bind(this)
 
     const submitEnabled = this.props.application.metadata && this.props.application.metadata.submit_enabled
     const DataValidForSave = !checkForNameValidation(this.props.application.applicants)
@@ -122,6 +124,21 @@ export default class Rfa01EditView extends React.Component {
       })
   }
 
+  handleAppRelationshipsOnAddApplicant (applicants) {
+    // this.state.application.minor_children
+    this.state.application.get('minor_children').toJS()
+    console.log(applicants.toJS())
+    console.log(this.state.application.minor_children.toJS())
+  }
+
+  handleAppRelationshipsOnRemoveApplicant (applicants) {
+    // if no minor children or other adults just use default props coming in
+    // applicants.map(applicant, index){
+    this.state.application.get('minor_children').toJS()
+    console.log(applicants.toJS())
+    console.log(this.state.application.toJS())
+  }
+
   setApplicationState (key, value) {
     if (Immutable.Iterable.isIterable(value) === false) {
       value = Immutable.fromJS(value)
@@ -194,13 +211,16 @@ export default class Rfa01EditView extends React.Component {
               ethnicityTypes={this.props.ethnicityTypes}
               languageTypes={this.props.languageTypes}
               focusComponentName={this.state.focusComponentName}
+              application={this.state.application.toJS()}
               applicants={this.state.application.get('applicants') || undefined}
               setParentState={this.setApplicationState}
               setFocusState={this.setFocusState}
               getFocusClassName={this.getFocusClassName}
               hasValidName={this.state.disableSave}
               validator={this.validator}
-              errors={this.state.errors.applicants} />
+              errors={this.state.errors.applicants}
+              handleAppRelationshipsOnAddApplicant={this.handleAppRelationshipsOnAddApplicant}
+              handleAppRelationshipsOnRemoveApplicant={this.handleAppRelationshipsOnRemoveApplicant} />
           </div>
         </ScrollSpy>
         <ScrollSpy onEnter={() => this.handleNavLinkClick('#applicant-residence-card')}>
@@ -265,7 +285,8 @@ export default class Rfa01EditView extends React.Component {
               errors={this.state.errors.otherAdults}
               applicants={applicantsAsJs}
               otherAdults={(this.state.application.get('other_adults') && this.state.application.get('other_adults').toJS()) || undefined}
-              relationship_types={this.props.relationshipToApplicantTypes} />
+              suffixTypes={this.props.suffixTypes}
+              prefixTypes={this.props.prefixTypes} />
           </div>
         </ScrollSpy>
         <ScrollSpy onEnter={() => this.handleNavLinkClick('#marital-history-card')}>

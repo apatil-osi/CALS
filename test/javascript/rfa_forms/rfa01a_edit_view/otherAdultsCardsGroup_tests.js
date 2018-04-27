@@ -1,7 +1,7 @@
 import React from 'react'
 import OtherAdultsCardsGroup from 'rfa_forms/rfa01a_edit_view/OtherAdultsCardsGroup.js'
 import {shallow, mount} from 'enzyme'
-import {relationshipTypes} from '../../helpers/constants'
+import {relationshipTypes, suffixTypes, prefixTypes} from '../../helpers/constants'
 import {otherAdultsDefaults} from 'constants/defaultFields'
 import Validator from 'helpers/validator'
 
@@ -11,10 +11,13 @@ describe('Verify other adults Component View', function () {
     getFocusClassNameSpy, handleRelationshipTypeToApplicantSpy,
     onFieldChangeSpy, validator, otherAdultsCardCompWithOtherAdultsToDelete
 
+  const applicants = [{
+    first_name: 'gdfghfhgv',
+    last_name: 'hgbhg',
+    middle_name: ''
+  }]
+
   const OtherAdultsCard = {
-    relationship_types: {
-      items: []
-    },
     relationship_to_applicants: [
       {
         applicant_id: null,
@@ -34,9 +37,6 @@ describe('Verify other adults Component View', function () {
 
   const OtherAdultsCardToDelete = {
     to_delete: true,
-    relationship_types: {
-      items: []
-    },
     relationship_to_applicants: [
       {applicant_id: null,
         relationship_to_applicant: {
@@ -61,6 +61,9 @@ describe('Verify other adults Component View', function () {
     validator = new Validator({})
     props = {
       otherAdults: [OtherAdultsCard],
+      suffixTypes: suffixTypes.items,
+      prefixTypes: prefixTypes.items,
+      applicants: applicants,
       relationship_types: relationshipTypes,
       relationshipToApplicantTypes: relationshipTypes,
       focusComponentName: 'ApplicantMaritalHistoryCardGroup',
@@ -71,13 +74,16 @@ describe('Verify other adults Component View', function () {
       handleRelationshipTypeToApplicant: handleRelationshipTypeToApplicantSpy,
       validator: validator
     }
-    component = shallow(
+    component = mount(
       <OtherAdultsCardsGroup {...props} />
     )
     componentMount = mount(<OtherAdultsCardsGroup {...props} />)
 
     otherAdultsCardCompWithoutOtherAdults = mount(<OtherAdultsCardsGroup
       otherAdults={[]}
+      suffixTypes={suffixTypes.items}
+      prefixTypes={prefixTypes.items}
+      applicants={applicants}
       relationship_types={relationshipTypes}
       focusComponentName='ApplicantMaritalHistoryCardGroup'
       relationshipToApplicantTypes={relationshipTypes}
@@ -88,8 +94,11 @@ describe('Verify other adults Component View', function () {
       handleRelationshipTypeToApplicant={handleRelationshipTypeToApplicantSpy}
       validator={validator} />)
 
-    otherAdultsCardCompWithOtherAdultsToDelete = shallow(<OtherAdultsCardsGroup
+    otherAdultsCardCompWithOtherAdultsToDelete = mount(<OtherAdultsCardsGroup
       otherAdults={[OtherAdultsCardToDelete]}
+      suffixTypes={suffixTypes.items}
+      prefixTypes={prefixTypes.items}
+      applicants={applicants}
       relationship_types={relationshipTypes}
       focusComponentName='ApplicantMaritalHistoryCardGroup'
       relationshipToApplicantTypes={relationshipTypes}
@@ -105,10 +114,10 @@ describe('Verify other adults Component View', function () {
     it('has simulates relationship field change', function () {
       componentMount.update()
       spyOn(componentMount.instance(), 'handleRelationshipTypeToApplicant').and.callThrough()
-      let relationShipField = componentMount.findWhere(n => n.props().id === 'other_adults[0].relationship_to_applicant_freeform').hostNodes()
+      let relationShipField = componentMount.find('.col-md-12').first().find('#otherAdultsrelationship_to_applicants0person0relationship_to_applicant_freeform').hostNodes()
       relationShipField.simulate('change', {target: {value: 'Sibling'}})
 
-      expect(setParentStateSpy).toHaveBeenCalledWith('other_adults', [ Object({ relationship_types: Object({ items: [ ] }), relationship_to_applicants: [ Object({ applicant_id: null, relationship_to_applicant_freeform: 'Sibling', relationship_to_applicant: Object({ id: 0, value: '' }) }) ], index: 0, first_name: '', middle_name: '', last_name: '', date_of_birth: '2017-01-01' }) ])
+      expect(setParentStateSpy).toHaveBeenCalledWith('other_adults', [ Object({ relationship_to_applicants: [ Object({ applicant_id: null, relationship_to_applicant_freeform: 'Sibling', relationship_to_applicant: Object({ id: 0, value: '' }) }) ], index: 0, first_name: '', middle_name: '', last_name: '', date_of_birth: '2017-01-01' }) ])
     })
   })
 
@@ -172,10 +181,15 @@ describe('Verify other adults Component View', function () {
       newData[0] = OtherAdultsCard
       newData[1] = otherAdultsDefaults
       component.setProps({other_adults: newData})
+      expect(component.instance().props.validator.validations.size).toEqual(4)
       spyOn(component.instance(), 'clickClose').and.callThrough()
       component.find('.remove-btn').at(0).simulate('click')
       component.update()
+      spyOn(component.instance().props.validator, 'removeValidations').and.callThrough()
       expect(component.instance().clickClose).toHaveBeenCalledWith(0)
+      // component.instance().props.validator.removeValidations()
+      component.instance().props.validator.removeValidations(component.instance().props.validator.validations)
+      expect(component.instance().props.validator.validations.size).toEqual(4)
       expect(props.otherAdults.length).toEqual(1)
     })
 
@@ -183,16 +197,7 @@ describe('Verify other adults Component View', function () {
       let NameFields = componentMount.find('input[type="text"]')
       let lastNameField = NameFields.findWhere(n => n.props().id === 'other_adults[0].last_name')
       lastNameField.simulate('change', {target: {value: 'dude'}})
-      expect(setParentStateSpy).toHaveBeenCalledWith('other_adults',
-        [ { relationship_types: { items: [ ] },
-          relationship_to_applicants: [ { applicant_id: null,
-            relationship_to_applicant_freeform: '',
-            relationship_to_applicant: {id: 0, value: ''}} ],
-          index: 0,
-          first_name: '',
-          middle_name: '',
-          last_name: 'dude',
-          date_of_birth: '2017-01-01' } ])
+      expect(setParentStateSpy).toHaveBeenCalledWith('other_adults', [ Object({ relationship_to_applicants: [ Object({ applicant_id: null, relationship_to_applicant_freeform: '', relationship_to_applicant: Object({ id: 0, value: '' }) }) ], index: 0, first_name: '', middle_name: '', last_name: 'dude', date_of_birth: '2017-01-01' }) ])
     })
   })
 })

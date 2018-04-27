@@ -14,6 +14,7 @@ export default class MinorCardsGroup extends React.Component {
     this.handleRelationshipTypeToApplicant = this.handleRelationshipTypeToApplicant.bind(this)
     this.onFieldChange = this.onFieldChange.bind(this)
     this.clickClose = this.clickClose.bind(this)
+    this.handleRelationshipTypeChange = this.handleRelationshipTypeChange.bind(this)
   }
 
   addCard (event) {
@@ -31,8 +32,18 @@ export default class MinorCardsGroup extends React.Component {
     this.props.setParentState('minor_children', minorChildrenList.toJS())
   }
 
-  handleRelationshipTypeToApplicant (index, value, type) {
-    this.props.setParentState('minor_children', handleRelationshipTypeToApplicant(index, value, type, this.props.minorChildren))
+  handleRelationshipTypeToApplicant (applicant, value, index, subIndex) {
+    let itemsList = Immutable.fromJS(this.props.minorChildren)
+    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'relationship_to_applicant_freeform'], value)
+    itemsList = applicant.id ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicant.id) : itemsList
+    this.props.setParentState('minor_children', itemsList.toJS())// handleRelationshipTypeToApplicant(index, subIndex, value, 'relationship_to_applicant_freeform', this.props.minorChildren))
+  }
+
+  handleRelationshipTypeChange (applicant, value, index, subIndex, type) {
+    let itemsList = Immutable.fromJS(this.props.minorChildren)
+    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
+    itemsList = applicant.id ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicant.id) : itemsList
+    this.props.setParentState('minor_children', itemsList.toJS())// handleRelationshipTypeToApplicant(index, subIndex, value, 'relationship_to_applicant_freeform', this.props.minorChildren))
   }
 
   render () {
@@ -61,6 +72,7 @@ export default class MinorCardsGroup extends React.Component {
                         relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
                         minorChild={minor}
                         handleRelationshipTypeToApplicant={this.handleRelationshipTypeToApplicant}
+                        handleRelationshipTypeChange={this.handleRelationshipTypeChange}
                         applicants={this.props.applicants}
                         onFieldChange={this.onFieldChange}
                         validator={this.props.validator}

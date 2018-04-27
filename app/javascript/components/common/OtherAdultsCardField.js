@@ -3,6 +3,8 @@ import _ from 'lodash'
 import {InputComponent} from './inputFields'
 import {DropDownField} from './dropDownField'
 import {DateField} from './dateFields'
+import CompleteNameFields from 'rfa_forms/rfa01a_edit_view/completeNameField.jsx'
+import {ApplicantsFreeformRelationshipFields} from 'components/rfa_forms/applicantsFreeformRelationshipFields.jsx'
 import {valuePresent, dictionaryNilSelect, dictionaryNilSelectValue, getDictionaryId, FormatDateForDisplay, FormatDateForPersistance} from 'helpers/commonHelper.jsx'
 import {setToWhomOptionList, handleToWhomValue, checkRelationshipFreeformPresence} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
@@ -61,47 +63,68 @@ export class OtherAdultsCardField extends React.Component {
     const isRelationshipToApplicantObject = this.isRelationshipToApplicantObject()
     return (
       <form>
-        <InputComponent gridClassName='col-md-4'
-          id={this.props.idPrefix + 'relationship_to_applicant_freeform'}
-          value={checkRelationshipFreeformPresence(adult)}
-          label='Relationship to Applicant'
-          onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, event.target.value, 'relationship_to_applicant_freeform')} />
-        <DropDownField gridClassName='col-md-4'
-          id={this.props.idPrefix + 'availableApplicants'}
-          selectClassName='reusable-select'
-          optionList={setToWhomOptionList(this.props.applicants)}
-          value={handleToWhomValue(adult.relationship_to_applicants[0].applicant_id, this.props.applicants).id}
-          label={isRelationshipToApplicantObject ? 'To Whom (required)' : 'To Whom'}
-          onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, dictionaryNilSelectValue(event.target.options), 'applicant_id')} />
-        <DateField gridClassName='col-md-4'
-          id={this.otherAdultDOBId}
-          label={isRelationshipToApplicantObject ? 'Date of Birth (required)' : 'Date of Birth'}
-          value={FormatDateForDisplay(adult.date_of_birth)}
-          errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_birth)}
-          onChange={(event) => this.props.onFieldChange(this.props.index,
+
+        <ApplicantsFreeformRelationshipFields
+          applicants={this.props.applicants}
+          person={adult}
+          index={this.props.index}
+          idPrefix='otherAdults'
+          handleRelationshipTypeToApplicant={this.props.handleRelationshipTypeToApplicant} />
+
+        <div className='col-md-12' style={{borderTop: '0.1rem solid #e8e8e8', padding: '0em',
+          paddingLeft: '1%', margin: '1em 0em', marginLeft: '0em'}} >
+          <DateField gridClassName='col-md-4'
+            id={this.otherAdultDOBId}
+            label={isRelationshipToApplicantObject ? 'Date of Birth (required)' : 'Date of Birth'}
+            value={FormatDateForDisplay(adult.date_of_birth)}
+            errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_birth)}
+            onChange={(event) => this.props.onFieldChange(this.props.index,
             FormatDateForPersistance(event.target.value), 'date_of_birth')}
-          onBlur={(event) => this.props.validator.validateFieldSetErrorState(this.otherAdultDOBId, event.target.value)} />
-        <InputComponent gridClassName='col-md-4'
-          id={this.otherAdultFirstNameID}
-          value={adult.first_name}
-          label={isRelationshipToApplicantObject ? 'First Name (required)' : 'First Name'}
-          placeholder='Enter First Name'
-          type='text'
-          onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('first_name'))} />
-        <InputComponent gridClassName='col-md-4'
-          id={this.otherAdultMiddleNameID}
-          value={adult.middle_name}
-          label='Middle Name'
-          placeholder='Enter Middle Name'
-          type='text'
-          onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('middle_name'))} />
-        <InputComponent gridClassName='col-md-4'
-          id={this.otherAdultLastNameID}
-          value={adult.last_name}
-          label={isRelationshipToApplicantObject ? 'Last Name (required)' : 'Last Name'}
-          placeholder='Enter Last Name'
-          type='text'
-          onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('last_name'))} />
+            onBlur={(event) => this.props.validator.validateFieldSetErrorState(this.otherAdultDOBId, event.target.value)} />
+        </div>
+        <div className='col-md-12'>
+          <DropDownField gridClassName='col-md-4'
+            id={this.props.idPrefix + 'name_prefix'}
+            value={getDictionaryId(adult.name_prefix)}
+            selectClassName={'reusable-select'}
+            optionList={this.props.prefixTypes}
+            label={'Prefix'}
+            onChange={(event, id) => this.props.onFieldChange(this.props.index, dictionaryNilSelect(event.target.options), 'name_prefix')} />
+        </div>
+        <div className='col-md-12'>
+          <InputComponent gridClassName='col-md-4'
+            id={this.otherAdultFirstNameID}
+            value={adult.first_name}
+            label={isRelationshipToApplicantObject ? 'First Name (required)' : 'First Name'}
+            placeholder='Enter First Name'
+            type='text'
+            onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('first_name'))} />
+          <InputComponent gridClassName='col-md-4'
+            id={this.otherAdultMiddleNameID}
+            value={adult.middle_name}
+            label='Middle Name'
+            placeholder='Enter Middle Name'
+            type='text'
+            onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('middle_name'))} />
+          <InputComponent gridClassName='col-md-4'
+            id={this.otherAdultLastNameID}
+            value={adult.last_name}
+            label={isRelationshipToApplicantObject ? 'Last Name (required)' : 'Last Name'}
+            placeholder='Enter Last Name'
+            type='text'
+            onChange={(event, id) => this.props.onFieldChange(this.props.index, event.target.value, ('last_name'))} />
+        </div>
+        <div className='col-md-12'>
+          <DropDownField
+            gridClassName='col-md-4'
+            id={this.props.idPrefix + 'name_suffix'}
+            value={getDictionaryId(adult.name_suffix)}
+            selectClassName={'reusable-select'}
+            optionList={this.props.suffixTypes}
+            label={'Suffix'}
+            onChange={(event, id) => this.props.onFieldChange(this.props.index, dictionaryNilSelect(event.target.options), 'name_suffix')} />
+        </div>
+
       </form>
     )
   }

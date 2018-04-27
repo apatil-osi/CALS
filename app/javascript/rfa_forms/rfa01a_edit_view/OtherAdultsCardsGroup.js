@@ -2,7 +2,7 @@ import Immutable from 'immutable'
 import React from 'react'
 import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import {OtherAdultsCardField} from 'components/common/OtherAdultsCardField'
-import {addCardAsJS, removeCardWithId, handleRelationshipTypeToApplicant, getFocusClassName} from 'helpers/cardsHelper.jsx'
+import {addCardAsJS, removeCardWithId, getFocusClassName} from 'helpers/cardsHelper.jsx'
 import {otherAdultsDefaults} from 'constants/defaultFields'
 
 export default class OtherAdultsCardsGroup extends React.Component {
@@ -30,8 +30,11 @@ export default class OtherAdultsCardsGroup extends React.Component {
     this.props.setParentState('other_adults', otherAdultsList.toJS())
   }
 
-  handleRelationshipTypeToApplicant (index, value, type) {
-    this.props.setParentState('other_adults', handleRelationshipTypeToApplicant(index, value, type, checkArrayObjectPresence(this.props.otherAdults)))
+  handleRelationshipTypeToApplicant (applicant, value, index, subIndex) {
+    let itemsList = Immutable.fromJS(this.props.otherAdults)
+    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'relationship_to_applicant_freeform'], value)
+    itemsList = applicant.id ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicant.id) : itemsList
+    this.props.setParentState('other_adults', itemsList.toJS())
   }
 
   render () {
@@ -53,6 +56,8 @@ export default class OtherAdultsCardsGroup extends React.Component {
                       <div > <a onClick={() => this.clickClose(index)} className='pull-right remove-btn'>Remove</a>
                       </div>
                       <OtherAdultsCardField
+                        suffixTypes={this.props.suffixTypes}
+                        prefixTypes={this.props.prefixTypes}
                         index={index}
                         idPrefix={idPrefix}
                         relationship_types={this.props.relationship_types}
