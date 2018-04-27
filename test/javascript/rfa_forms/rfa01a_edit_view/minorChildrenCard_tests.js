@@ -93,6 +93,6 @@ describe('Verify MinorCardFields', function () {
       let relationShipField = minorChildCardComp.find('input[type="radio"]').at(2)
       relationShipField.simulate('change', {target: {value: true}})
       expect(onFieldChangeSpy).toHaveBeenCalledWith(0, true, 'child_adopted')
-    })    
+    })
   })
 })
