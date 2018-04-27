@@ -122,6 +122,6 @@ MinorCardField.propTypes = {
 }
 
 MinorCardField.defaultProps = {
-  idPrefix: 'residence.',
+  idPrefix: '',
   errors: {}
 }
