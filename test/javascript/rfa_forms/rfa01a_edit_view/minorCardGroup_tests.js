@@ -109,7 +109,7 @@ describe('Verify minor children Component View', function () {
     it('tests onFieldChange', () => {
       componentMount.update()
       spyOn(componentMount.instance(), 'onFieldChange').and.callThrough()
-      let childFinanciallySupported = componentMount.find('#child_financially_supportedfalse').hostNodes()
+      let childFinanciallySupported = componentMount.find('#child_financially_supported0false').hostNodes()
       childFinanciallySupported.simulate('change', {target: {value: 'false'}})
       // minorCardChild.child_financially_supported = '2'
       expect(setParentStateSpy).toHaveBeenCalledWith('minor_children', [minorCardChild])
