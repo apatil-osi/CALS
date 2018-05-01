@@ -64,9 +64,8 @@ export class MinorCardField extends React.Component {
     const isRequiredLabel = this.isRelationShipToApplicantObject() ? ' (required)' : ''
     const index = this.props.index
     const minor = this.props.minorChild
-    const isRelationShipToApplicantObject = this.isRelationShipToApplicantObject()
     return (
-      <div class='col-md-12'>
+      <div className='col-md-12'>
         <InputComponent gridClassName='col-md-4'
           id={this.props.idPrefix + 'relationship_to_applicant_freeform'}
           value={checkRelationshipFreeformPresence(minor)}
@@ -100,14 +99,14 @@ export class MinorCardField extends React.Component {
           value={minor.child_financially_supported}
           selectClassName={'reusable-select'}
           optionList={yesNo.items}
-          onFieldChange={(event) => this.props.onFieldChange(this.props.index, event.target.value, 'child_financially_supported')} />
+          onFieldChange={(event) => this.props.onFieldChange(index, event.target.value, 'child_financially_supported')} />
         <YesNoRadioComponent
           idPrefix={'child_adopted' + index}
           value={minor.child_adopted}
           selectClassName={'reusable-select'}
           optionList={yesNo.items}
           label={'Is this child adopted?' + isRequiredLabel}
-          onFieldChange={(event) => this.props.onFieldChange(this.props.index, event.target.value, 'child_adopted')} />
+          onFieldChange={(event) => this.props.onFieldChange(index, event.target.value, 'child_adopted')} />
       </div>
     )
   }
