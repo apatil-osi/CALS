@@ -118,8 +118,8 @@ RSpec.feature 'RFA01A', js: true do
     expect(page).to have_button('Submit', disabled: true)
     select 'Geovanni Moen', from: 'applicant_id'
     fill_in('minor_children[0].date_of_birth', with: '11/11/1111', match: :prefer_exact)
-    find('#child_financially_supportedYes').click
-    find('#child_adoptedYes').click
+    find('#child_financially_supported0Yes').click
+    find('#child_adopted0Yes').click
     select 'Male', from: 'minor_gender'
     expect(page).to have_button('Submit', disabled: false)
     fill_in('other_adults[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
@@ -333,8 +333,8 @@ RSpec.feature 'RFA01A', js: true do
     expect(page).to have_content 'IV. Minor Children Residing in the Home'
     fill_in('minor_children[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
     select applicant_1_full_name, from: 'applicant_id'
-    find('#child_financially_supportedYes').click
-    find('#child_adoptedYes').click
+    find('#child_financially_supported0Yes').click
+    find('#child_adopted0Yes').click
     select 'Male', from: 'minor_gender'
     click_button('Save Progress')
     visit page.driver.current_url
