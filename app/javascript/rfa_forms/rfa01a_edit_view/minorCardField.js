@@ -62,7 +62,7 @@ export class MinorCardField extends React.Component {
 
   render () {
     const isRequiredLabel = this.isRelationShipToApplicantObject() ? ' (required)' : ''
-    const child = this.props.index
+    const index = this.props.index
     const minor = this.props.minorChild
     const isRelationShipToApplicantObject = this.isRelationShipToApplicantObject()
     return (
@@ -96,13 +96,13 @@ export class MinorCardField extends React.Component {
           onChange={(event) => this.props.onFieldChange(this.props.index, dictionaryNilSelect(event.target.options), 'gender')} />
         <YesNoRadioComponent
           label={'Do you financially support this child?' + isRequiredLabel}
-          idPrefix={'child_financially_supported' + child}
+          idPrefix={'child_financially_supported' + index}
           value={minor.child_financially_supported}
           selectClassName={'reusable-select'}
           optionList={yesNo.items}
           onFieldChange={(event) => this.props.onFieldChange(this.props.index, event.target.value, 'child_financially_supported')} />
         <YesNoRadioComponent
-          idPrefix={'child_adopted' + child}
+          idPrefix={'child_adopted' + index}
           value={minor.child_adopted}
           selectClassName={'reusable-select'}
           optionList={yesNo.items}
