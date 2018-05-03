@@ -55,10 +55,10 @@ RSpec.feature 'Facility Search & Profile', js: true, set_auth_header: true do
     #expect(page).to have_css(:span, text: '348')
     find(:css, '#next_button').click
     expect(page).to have_text('2')
-    expect(page).to have_content('Facility Phone Number', minimum: 1)
+    expect(page).to have_content('Phone Number', minimum: 1)
     find(:css, '#previous_button').click
     expect(page).to have_text('1')
-    expect(page).to have_content('Facility Phone Number', minimum: 1)
+    expect(page).to have_content('Phone Number', minimum: 1)
   end
 
   scenario 'To find facilties by entering facility ID' do
