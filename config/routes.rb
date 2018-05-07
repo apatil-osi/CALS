@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :facilities, only: [:index, :show] do
+  resources :facilities do
     collection { post :search }
+    collection { post :facility }
   end
 
   resources :search do
-    collection {post :index}
+    collection { post :user_and_dictionaries}
   end
 
   # heartbeat page

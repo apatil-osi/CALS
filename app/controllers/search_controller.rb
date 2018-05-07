@@ -1,21 +1,20 @@
 class SearchController < CalsBaseController
+  before_action -> { require_privilege(method(:index)) }
+  include Response
 
-  def index
-    @landingPage_url = SANDBOX_LANDING_URL
-    @dictionaries    = dictionaries_helper.facilities_dictionaries
-    @from = check_for_nil(session[:from])
-    @size = check_for_nil(session[:size])
-    @page_number = check_for_nil(session[:page_number])
-    @input_data = check_for_nil(session[:input_data])
-    @user = user_from_session
-  end
+  def index; end
 
-  def check_for_nil(session_value)
-    params[:search_params].nil? ? session_value : nil
+  def user_and_dictionaries
+    dictionaries = dictionaries_helper.facilities_dictionaries
+    user = user_from_session
+    user_dictionaries = {}
+    user_dictionaries['countyTypes'] = dictionaries[:county_types]
+    user_dictionaries['facilityTypes'] = dictionaries[:facility_types]
+    user_dictionaries['user'] = user
+    json_response user_dictionaries
   end
 
   private
-
   def dictionaries_helper
     Helpers::Dictionary.new(auth_header: get_session_token)
   end

@@ -9,6 +9,7 @@ import {getDictionaryId, dictionaryNilSelect, dictionaryNilSelectValue, FormatDa
 import {yesNo} from 'constants/constants'
 import {setToWhomOptionList, handleToWhomValue, checkRelationshipFreeformPresence} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
+import YesNoRadioComponent from 'components/common/yesNoFields'
 import {fieldErrorsAsImmutableSet} from 'helpers/validationHelper.jsx'
 
 const dateValidator = {rule: 'isValidDate', message: 'date is invalid'}
@@ -60,7 +61,10 @@ export class MinorCardField extends React.Component {
     this.props.handleRelationshipTypeChange(this.props.index, dictionaryNilSelectValue(event.target.options), subIndex, 'child_financially_supported')
   }
   render () {
+    const isRequiredLabel = this.isRelationShipToApplicantObject() ? ' (required)' : ''
+    const index = this.props.index
     const minor = this.props.minorChild
+
     const isRelationShipToApplicantObject = this.isRelationShipToApplicantObject()
     let applicants = this.props.applicants
 
@@ -84,20 +88,20 @@ export class MinorCardField extends React.Component {
                   label={applicant.first_name + ' ' + applicant.last_name}
                   placeholder=''
                   onChange={(event) => this.props.handleRelationshipTypeToApplicant(applicant, event.target.value, this.props.index, subIndex)} />
-                <DropDownField gridClassName='col-md-4'
-                  id='child_financially_supported'
+                <YesNoRadioComponent
+                  label={'Do you financially support this child?' + isRequiredLabel}
+                  idPrefix={'child_financially_supported' + index}
                   value={minor.relationship_to_applicants[subIndex] && minor.relationship_to_applicants[subIndex].child_financially_supported}
                   selectClassName={'reusable-select'}
                   optionList={yesNo.items}
-                  label={isRelationShipToApplicantObject ? 'Provides Financial Support? (required)' : 'Provides Financial Support?'}
-                  onChange={(event) => this.onChange(event, subIndex)} />
-                <DropDownField gridClassName='col-md-4'
-                  id='child_adopted'
+                  onFieldChange={(event) => this.props.onFieldChange(index, event.target.value, 'child_financially_supported')} />
+                <YesNoRadioComponent
+                  idPrefix={'child_adopted' + index}
                   value={minor.relationship_to_applicants[subIndex] && minor.relationship_to_applicants[subIndex].child_adopted}
                   selectClassName={'reusable-select'}
                   optionList={yesNo.items}
-                  label={isRelationShipToApplicantObject ? 'Is this child adopted? (required)' : 'Is this child adopted?'}
-                  onChange={(event) => this.onChange(event, subIndex)} />
+                  label={'Is this child adopted?' + isRequiredLabel}
+                  onFieldChange={(event) => this.props.onFieldChange(index, event.target.value, 'child_adopted')} />
               </div>
 
             )
@@ -143,5 +147,6 @@ MinorCardField.propTypes = {
 
 MinorCardField.defaultProps = {
   idPrefix: '',
+  index: 0,
   errors: {}
 }

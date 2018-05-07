@@ -8,10 +8,10 @@ RSpec.feature 'RFA01A', js: true do
 
   before(:each) do
     visit root_path
-	end
-	scenario 'Dashboard page', set_auth_header: true do
-	    expect(page).to have_button('Create RFA Application (Form 01)')
-  	end
+    end
+    scenario 'Dashboard page', set_auth_header: true do
+        expect(page).to have_button('Create RFA Application (Form 01)')
+    end
 
   scenario 'validate applicant card', set_auth_header: true do
     visit root_path
@@ -63,8 +63,8 @@ RSpec.feature 'RFA01A', js: true do
   end
 
   scenario 'validate remove button, applicant card', set_auth_header: true do
-  	click_button 'Create RFA Application (Form 01)'
-  	expect(page).to have_content 'Rfa-01A Section Summary'
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('applicants[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
@@ -108,6 +108,8 @@ RSpec.feature 'RFA01A', js: true do
     find('#weaponsYes').click
     find('#body_of_water_existYes').click
     find('#others_using_residence_as_mailingYes').click
+    fill_in('residence.other_people_using_residence_as_mailing[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
+    fill_in('residence.other_people_using_residence_as_mailing[0].last_name', with: Faker::Name.first_name, match: :prefer_exact)
     page.find(:css, '.languages').click
     page.find(:css, '#react-select-4--option-0').click
     page.find(:css, '.languages').click
@@ -118,8 +120,8 @@ RSpec.feature 'RFA01A', js: true do
     fill_in('relationship_to_applicant0person0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
     expect(page).to have_button('Submit', disabled: true)
     fill_in('minor_children[0].date_of_birth', with: '11/11/1111', match: :prefer_exact)
-    select 'Yes', from: 'child_financially_supported'
-    select 'Yes', from: 'child_adopted'
+    find('#child_financially_supported0Yes').click
+    find('#child_adopted0Yes').click
     select 'Male', from: 'minor_gender'
     expect(page).to have_button('Submit', disabled: false)
     fill_in('other_adults[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
@@ -276,7 +278,7 @@ RSpec.feature 'RFA01A', js: true do
     fill_in('Residentialstreet_address', with: '2870 something else', match: :prefer_exact)
     fill_in('Residentialzip', with: '12345', match: :prefer_exact)
     find('#mailing_similarNo').click
-    fill_in('Mailingstreet_address', with: 'maing address here', match: :prefer_exact)
+    fill_in('Mailingstreet_address', with: 'mailing address here', match: :prefer_exact)
     fill_in('Mailingzip', with: '12345', match: :prefer_exact)
     fill_in('Mailingcity', with: 'secondary city', match: :prefer_exact)
     expect(page).to have_content 'About This Residence'
@@ -284,6 +286,21 @@ RSpec.feature 'RFA01A', js: true do
     find('#weaponsYes').click
     find('#body_of_water_existYes').click
     find('#others_using_residence_as_mailingYes').click
+    within '.residence_about_cards' do
+        select 'Mr.', from: 'residence.other_people_using_residence_as_mailing[0].name_prefix'
+        fill_in('residence.other_people_using_residence_as_mailing[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
+        fill_in('residence.other_people_using_residence_as_mailing[0].last_name', with: Faker::Name.last_name, match: :prefer_exact)
+        select 'II', from: 'residence.other_people_using_residence_as_mailing[0].name_suffix'
+        expect(page).to have_content('ADD ANOTHER PERSON +')
+        click_button('Add Another Person +')
+        second_person = find(:xpath, '//*[@id="aboutResidence"]/div[2]/div/div/div/div/div[6]/div[2]')
+        within second_person do
+            select 'Miss', from: 'residence.other_people_using_residence_as_mailing[1].name_prefix'
+            fill_in('residence.other_people_using_residence_as_mailing[1].first_name', with: Faker::Name.first_name, match: :prefer_exact)
+            fill_in('residence.other_people_using_residence_as_mailing[1].last_name', with: Faker::Name.last_name, match: :prefer_exact)
+            select 'MD', from: 'residence.other_people_using_residence_as_mailing[1].name_suffix'
+        end
+    end
     fill_in('directions', with: 'directions goes here', match: :prefer_exact)
     page.find(:css, '.languages').click
     page.find(:css, '#react-select-4--option-0').click
@@ -315,10 +332,10 @@ RSpec.feature 'RFA01A', js: true do
     fill_in('applicants[0].middle_name', with: 'k', match: :prefer_exact)
     fill_in('applicants[0].last_name', with: applicant_1_last_name, match: :prefer_exact)
     expect(page).to have_content 'IV. Minor Children Residing in the Home'
-
-    fill_in('relationship_to_applicant0person0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
-    select 'Yes', from: 'child_financially_supported'
-    select 'Yes', from: 'child_adopted'
+    fill_in('minor_children[0].relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
+    select applicant_1_full_name, from: 'applicant_id'
+    find('#child_financially_supported0Yes').click
+    find('#child_adopted0Yes').click
     select 'Male', from: 'minor_gender'
     click_button('Save Progress')
     visit page.driver.current_url
