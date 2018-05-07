@@ -4,8 +4,8 @@ import {store} from 'store/configureStore'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
-import Facility from 'facility/index'
 import './stylesheets/search.scss'
+import FacilityContainer from '../containers/FacilityContainer'
 
 export default class SearchMain extends React.Component {
   render () {
@@ -14,7 +14,7 @@ export default class SearchMain extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route exact path={urlPrefixHelper('/search')} component={Search}/>
-            <Route path={urlPrefixHelper('/facilities/:id')} component={Facility}/>
+            <Route path={urlPrefixHelper('/facilities/:id')} component={FacilityContainer}/>
           </Switch>
         </BrowserRouter>
       </Provider>

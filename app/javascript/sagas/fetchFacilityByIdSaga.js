@@ -2,7 +2,8 @@ import {takeLatest, put, call} from 'redux-saga/effects'
 import {delay} from 'redux-saga'
 import {fetchRequest, fetchRequestWithErrors} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
-import {FACILITY_RESULTS_FETCH, fetchSuccess, fetchFailure} from 'actions/facilityActions'
+import {fetchSuccess, fetchFailure} from 'actions/facilityActions'
+import {FACILITY_RESULTS_FETCH} from 'actions/actionTypes'
 
 // worker saga: makes the api call when watcher saga sees the action
 export function * fetchFacilityById (action) {

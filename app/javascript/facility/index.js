@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import FacilityDetails from './facilityDetails.jsx'
-import FacilityAddress from './facilityAddress.jsx'
-import FacilityChildren from './facilityChildren.jsx'
-import FacilityComplaints from './facilityComplaints.jsx'
+import FacilityDetailsContainer from 'containers/FacilityDetailsContainer'
+import FacilityAddressContainer from 'containers/FacilityAddressContainer'
+import FacilityChildrenContainer from 'containers/FacilityChildrenContainer'
+import FacilityComplaintsContainer from 'containers/FacilityComplaintsContainer'
 import {PageHeader} from 'react-wood-duck'
 import Button from 'components/common/button'
 import {fetchRequest} from '../helpers/http'
@@ -46,25 +46,16 @@ class Facility extends React.Component {
 
           {facilityData && (
             <div>
-              <FacilityDetails facilityData={facilityData} />
-              <FacilityAddress facilityData={facilityData} />
+              <FacilityDetailsContainer />
+              <FacilityAddressContainer />
             </div>
           )}
 
-          {facilityChildren && <FacilityChildren children={facilityChildren.children} />}
-          {facilityComplaints && <FacilityComplaints complaints={facilityComplaints.complaints} />}
+          {facilityChildren && <FacilityChildrenContainer />}
+          {facilityComplaints && <FacilityComplaintsContainer />}
         </div>
       </div>
     )
-  }
-}
-
-function mapStateToProps (state) {
-  return {
-    facility: state.facilityReducer.facility,
-    children: state.facilityReducer.children,
-    complaints: state.facilityReducer.complaints,
-    errors: state.facilityReducer.errors
   }
 }
 
@@ -77,5 +68,4 @@ Facility.propTypes = {
   facilityApiCall: PropTypes.func
 }
 
-export {Facility}
-export default connect(mapStateToProps, {facilityApiCall})(Facility)
+export default Facility
