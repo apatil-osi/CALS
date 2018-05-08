@@ -63,8 +63,8 @@ export class MinorCardField extends React.Component {
     let applicants = this.props.applicants
 
     const isRequiredLabel = this.isRelationShipToApplicantObject() ? ' (required)' : ''
-    const relationshipLabel = applicants.length > 1 ?
-    'Relationship to Applicants:' : 'Relationship to Applicant:'
+    const relationshipLabel = applicants.length > 1
+      ? 'Relationship to Applicants:' : 'Relationship to Applicant:'
 
     return (
       <div>
@@ -73,34 +73,34 @@ export class MinorCardField extends React.Component {
             <label>{relationshipLabel}</label>
           </div>
           {
-          applicants && applicants.map((applicant, subIndex) => {
-            return (
-              <div key={'child[' + index + '].applicant[' + subIndex + ']'} >
-                <InputComponent
-                  gridClassName='col-md-4'
-                  id={'relationship_to_applicant' + index + 'child' + subIndex + 'relationship_to_applicant_freeform'}
-                  value={checkRelationshipFreeformPresence(minor, subIndex)}
-                  label={applicant.first_name + ' ' + applicant.last_name}
-                  placeholder=''
-                  onChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'relationship_to_applicant_freeform')} />
-                <YesNoRadioComponent
-                  label={'Do you financially support this child?' + isRequiredLabel}
-                  idPrefix={'child_financially_supported' + index + 'child' + subIndex}
-                  value={minor.relationship_to_applicants[subIndex] && minor.relationship_to_applicants[subIndex].child_financially_supported}
-                  selectClassName={'reusable-select'}
-                  optionList={yesNo.items}
-                  onFieldChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'child_financially_supported')} />
-                <YesNoRadioComponent
-                  idPrefix={'child_adopted' + index + 'child' + subIndex}
-                  value={minor.relationship_to_applicants[subIndex] && minor.relationship_to_applicants[subIndex].child_adopted}
-                  selectClassName={'reusable-select'}
-                  optionList={yesNo.items}
-                  label={'Is this child adopted?' + isRequiredLabel}
-                  onFieldChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'child_adopted')} />
-              </div>
-            )
-          })
-        }
+            applicants && applicants.map((applicant, subIndex) => {
+              return (
+                <div key={'child[' + index + '].applicant[' + subIndex + ']'} >
+                  <InputComponent
+                    gridClassName='col-md-4'
+                    id={'relationship_to_applicant' + index + 'child' + subIndex + 'relationship_to_applicant_freeform'}
+                    value={checkRelationshipFreeformPresence(minor, subIndex)}
+                    label={applicant.first_name + ' ' + applicant.last_name}
+                    placeholder=''
+                    onChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'relationship_to_applicant_freeform')} />
+                  <YesNoRadioComponent
+                    label={'Do you financially support this child?' + isRequiredLabel}
+                    idPrefix={'child_financially_supported' + index + 'child' + subIndex}
+                    value={minor.relationship_to_applicants[subIndex] && minor.relationship_to_applicants[subIndex].child_financially_supported}
+                    selectClassName={'reusable-select'}
+                    optionList={yesNo.items}
+                    onFieldChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'child_financially_supported')} />
+                  <YesNoRadioComponent
+                    idPrefix={'child_adopted' + index + 'child' + subIndex}
+                    value={minor.relationship_to_applicants[subIndex] && minor.relationship_to_applicants[subIndex].child_adopted}
+                    selectClassName={'reusable-select'}
+                    optionList={yesNo.items}
+                    label={'Is this child adopted?' + isRequiredLabel}
+                    onFieldChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'child_adopted')} />
+                </div>
+              )
+            })
+          }
         </div>
         <div className='col-md-12' >
           <div>
@@ -113,7 +113,7 @@ export class MinorCardField extends React.Component {
               value={FormatDateForDisplay(minor.date_of_birth)}
               errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_birth)}
               onChange={(event) => this.props.onFieldChange(index,
-            FormatDateForPersistance(event.target.value), 'date_of_birth')}
+                FormatDateForPersistance(event.target.value), 'date_of_birth')}
               onBlur={(event) => this.props.validator.validateFieldSetErrorState(this.minorDOBId, event.target.value)} />
             <DropDownField gridClassName='col-md-3'
               id='minor_gender'

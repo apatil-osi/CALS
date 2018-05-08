@@ -61,8 +61,8 @@ export class OtherAdultsCardField extends React.Component {
     const applicants = this.props.applicants
     const index = this.props.index
     const isRequiredLabel = this.isRelationshipToApplicantObject() ? ' (required)' : ''
-    const relationshipLabel = applicants.length > 1 ?
-    'Relationship to Applicants:' : 'Relationship to Applicant:'
+    const relationshipLabel = applicants.length > 1
+      ? 'Relationship to Applicants:' : 'Relationship to Applicant:'
 
     return (
       <div>
@@ -72,31 +72,34 @@ export class OtherAdultsCardField extends React.Component {
           </div>
           {
 
-          applicants && applicants.map((applicant, subIndex) => {
-            return (
-              <div key={'adult[' + index + '].applicant[' + subIndex + ']'} >
-                <InputComponent
-                  gridClassName='col-md-4'
-                  id={'relationship_to_applicants' + index + 'adult' + subIndex + 'relationship_to_applicant_freeform'}
-                  value={checkRelationshipFreeformPresence(adult, subIndex)}
-                  label={applicant.first_name + ' ' + applicant.last_name}
-                  placeholder=''
-                  onChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'relationship_to_applicant_freeform')} />
-              </div>
-            )
-          })
-        }
+            applicants && applicants.map((applicant, subIndex) => {
+              return (
+                <div key={'adult[' + index + '].applicant[' + subIndex + ']'} >
+                  <InputComponent
+                    gridClassName='col-md-4'
+                    id={'relationship_to_applicants' + index + 'adult' + subIndex + 'relationship_to_applicant_freeform'}
+                    value={checkRelationshipFreeformPresence(adult, subIndex)}
+                    label={applicant.first_name + ' ' + applicant.last_name}
+                    placeholder=''
+                    onChange={(event) => this.props.handleRelationshipTypeChange(applicant, event.target.value, index, subIndex, 'relationship_to_applicant_freeform')} />
+                </div>
+              )
+            })
+          }
         </div>
 
-        <div className='col-md-12' style={{borderTop: '0.1rem solid #e8e8e8', padding: '0em',
-          paddingLeft: '1%', margin: '1em 0em', marginLeft: '0em'}} >
+        <div className='col-md-12' style={{borderTop: '0.1rem solid #e8e8e8',
+          padding: '0em',
+          paddingLeft: '1%',
+          margin: '1em 0em',
+          marginLeft: '0em'}} >
           <DateField gridClassName='col-md-4'
             id={this.otherAdultDOBId}
             label={'Date of Birth' + isRequiredLabel}
             value={FormatDateForDisplay(adult.date_of_birth)}
             errors={fieldErrorsAsImmutableSet(this.props.errors.date_of_birth)}
             onChange={(event) => this.props.onFieldChange(index,
-            FormatDateForPersistance(event.target.value), 'date_of_birth')}
+              FormatDateForPersistance(event.target.value), 'date_of_birth')}
             onBlur={(event) => this.props.validator.validateFieldSetErrorState(this.otherAdultDOBId, event.target.value)} />
         </div>
         <div className='col-md-12'>

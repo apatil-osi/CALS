@@ -32,7 +32,7 @@ export default class ApplicantCardsGroup extends React.Component {
   onApplicantClickClose (cardIndex) {
     this.props.setParentState('applicants',
       removeCardWithId(this.props.applicants, cardIndex, Immutable.fromJS(blankApplicantFields)))
-//    this.props.handleAppRelationshipsOnRemoveApplicant(this.props.applicants)
+    //    this.props.handleAppRelationshipsOnRemoveApplicant(this.props.applicants)
   }
 
   setApplicantsState (applicantIndex, data) {
