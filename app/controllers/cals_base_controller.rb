@@ -56,7 +56,6 @@ class CalsBaseController < ApplicationController
   end
 
   def set_relationship_to_applicants(parameters, applicants)
-  #  byebug
     applicant_names = applicants.map { |app| [app.id, "#{app.first_name} #{app.middle_name} #{app.last_name}".squish] }.to_h
     if 0.eql?(parameters['applicant_id'].to_i)
       parameters.merge!(ActionController::Parameters.new('applicant_id' => applicant_names.key(parameters['applicant_id'])).permit!)
