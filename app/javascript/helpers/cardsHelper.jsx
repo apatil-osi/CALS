@@ -87,12 +87,6 @@ export const setToWhomOptionList = (applicants) => {
   return newApplicants
 }
 
-// export const handleRelationshipTypeToApplicant = (index, subIndex, value, type, items) => {
-//   let itemsList = Immutable.fromJS(items)
-//   itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
-//   return itemsList.toJS()
-// }
-
 export const handleToWhomValue = (applicantId, applicants) => {
   let newApplicants = {id: '', value: ''}
   if (applicantId) {
