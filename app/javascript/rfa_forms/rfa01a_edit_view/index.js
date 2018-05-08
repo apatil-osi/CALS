@@ -34,8 +34,6 @@ export default class Rfa01EditView extends React.Component {
     this.handleNavLinkClick = this.handleNavLinkClick.bind(this)
     this.isNavLinkActive = this.isNavLinkActive.bind(this)
     this.validateAllRequiredForSubmit = this.validateAllRequiredForSubmit.bind(this)
-    this.handleAppRelationshipsOnAddApplicant = this.handleAppRelationshipsOnAddApplicant.bind(this)
-    this.handleAppRelationshipsOnRemoveApplicant = this.handleAppRelationshipsOnRemoveApplicant.bind(this)
 
     const submitEnabled = this.props.application.metadata && this.props.application.metadata.submit_enabled
     const DataValidForSave = !checkForNameValidation(this.props.application.applicants)
@@ -122,21 +120,6 @@ export default class Rfa01EditView extends React.Component {
           errors: errors
         })
       })
-  }
-
-  handleAppRelationshipsOnAddApplicant (applicants) {
-    // this.state.application.minor_children
-    this.state.application.get('minor_children').toJS()
-    console.log(applicants.toJS())
-    console.log(this.state.application.minor_children.toJS())
-  }
-
-  handleAppRelationshipsOnRemoveApplicant (applicants) {
-    // if no minor children or other adults just use default props coming in
-    // applicants.map(applicant, index){
-    this.state.application.get('minor_children').toJS()
-    console.log(applicants.toJS())
-    console.log(this.state.application.toJS())
   }
 
   setApplicationState (key, value) {

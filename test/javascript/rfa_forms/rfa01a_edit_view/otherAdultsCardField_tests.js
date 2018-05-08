@@ -29,9 +29,9 @@ describe('Verify other adultsFields', function () {
     date_of_birth: '2017-01-01'
   }
 
-  let otherAdultsCardComp, handleRelationshipTypeToApplicantSpy, onFieldChangeSpy
+  let otherAdultsCardComp, handleRelationshipTypeChangeSpy, onFieldChangeSpy
   beforeEach(() => {
-    handleRelationshipTypeToApplicantSpy = jasmine.createSpy('handleRelationshipTypeToApplicant')
+    handleRelationshipTypeChangeSpy = jasmine.createSpy('handleRelationshipTypeChange')
     onFieldChangeSpy = jasmine.createSpy('onFieldChange')
     let validator = new Validator({})
     otherAdultsCardComp = mount(<OtherAdultsCardField
@@ -40,16 +40,16 @@ describe('Verify other adultsFields', function () {
       suffixTypes={suffixTypes.items}
       prefixTypes={prefixTypes.items}
       applicants={applicants}
-      handleRelationshipTypeToApplicant={handleRelationshipTypeToApplicantSpy}
+      handleRelationshipTypeChange={handleRelationshipTypeChangeSpy}
       onFieldChange={onFieldChangeSpy}
       otherAdults={OtherAdultsCard}
       validator={validator} />)
   })
 
   it('verifies relationship type field', () => {
-    let relationShipField = otherAdultsCardComp.find('.col-md-12').find('#otherAdultsrelationship_to_applicants0person0relationship_to_applicant_freeform').hostNodes()
+    let relationShipField = otherAdultsCardComp.find('.col-md-12').find('#relationship_to_applicants0adult0relationship_to_applicant_freeform').hostNodes()
     relationShipField.simulate('change', {target: {value: 'Sibling'}})
-    expect(handleRelationshipTypeToApplicantSpy).toHaveBeenCalledWith(Object({ first_name: 'gdfghfhgv', last_name: 'hgbhg', middle_name: '' }), 'Sibling', 0, 0)
+    expect(handleRelationshipTypeChangeSpy).toHaveBeenCalledWith({ first_name: 'gdfghfhgv', last_name: 'hgbhg', middle_name: '' }, 'Sibling', 0, 0, 'relationship_to_applicant_freeform')
   })
 
   it('verifies date of birth', () => {

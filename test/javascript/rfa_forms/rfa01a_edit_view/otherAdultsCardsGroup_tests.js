@@ -8,7 +8,7 @@ import Validator from 'helpers/validator'
 describe('Verify other adults Component View', function () {
   let component, componentMount, props, setParentStateSpy,
     otherAdultsCardCompWithoutOtherAdults, setFocusStateSpy,
-    getFocusClassNameSpy, handleRelationshipTypeToApplicantSpy,
+    getFocusClassNameSpy, handleRelationshipTypeChangeSpy,
     onFieldChangeSpy, validator, otherAdultsCardCompWithOtherAdultsToDelete
 
   const applicants = [{
@@ -56,7 +56,7 @@ describe('Verify other adults Component View', function () {
     setFocusStateSpy = jasmine.createSpy('setFocusState')
     getFocusClassNameSpy = jasmine.createSpy('getFocusClassName')
 
-    handleRelationshipTypeToApplicantSpy = jasmine.createSpy('handleRelationshipTypeToApplicant')
+    handleRelationshipTypeChangeSpy = jasmine.createSpy('handleRelationshipTypeChange')
     onFieldChangeSpy = jasmine.createSpy('onFieldChange')
     validator = new Validator({})
     props = {
@@ -71,7 +71,7 @@ describe('Verify other adults Component View', function () {
       onFieldChange: onFieldChangeSpy,
       setFocusState: setFocusStateSpy,
       getFocusClassName: getFocusClassNameSpy,
-      handleRelationshipTypeToApplicant: handleRelationshipTypeToApplicantSpy,
+      handleRelationshipTypeChange: handleRelationshipTypeChangeSpy,
       validator: validator
     }
     component = mount(
@@ -91,7 +91,7 @@ describe('Verify other adults Component View', function () {
       onFieldChange={onFieldChangeSpy}
       setFocusState={setFocusStateSpy}
       getFocusClassName={getFocusClassNameSpy}
-      handleRelationshipTypeToApplicant={handleRelationshipTypeToApplicantSpy}
+      handleRelationshipTypeChange={handleRelationshipTypeChangeSpy}
       validator={validator} />)
 
     otherAdultsCardCompWithOtherAdultsToDelete = mount(<OtherAdultsCardsGroup
@@ -106,15 +106,15 @@ describe('Verify other adults Component View', function () {
       onFieldChange={onFieldChangeSpy}
       setFocusState={setFocusStateSpy}
       getFocusClassName={getFocusClassNameSpy}
-      handleRelationshipTypeToApplicant={handleRelationshipTypeToApplicantSpy}
+      handleRelationshipTypeChange={handleRelationshipTypeChangeSpy}
       validator={validator} />)
   })
 
   describe('Verify other adult card Component View', () => {
     it('has simulates relationship field change', function () {
       componentMount.update()
-      spyOn(componentMount.instance(), 'handleRelationshipTypeToApplicant').and.callThrough()
-      let relationShipField = componentMount.find('.col-md-12').first().find('#otherAdultsrelationship_to_applicants0person0relationship_to_applicant_freeform').hostNodes()
+      spyOn(componentMount.instance(), 'handleRelationshipTypeChange').and.callThrough()
+      let relationShipField = componentMount.find('.col-md-12').first().find('#relationship_to_applicants0adult0relationship_to_applicant_freeform').hostNodes()
       relationShipField.simulate('change', {target: {value: 'Sibling'}})
 
       expect(setParentStateSpy).toHaveBeenCalledWith('other_adults', [ Object({ relationship_to_applicants: [ Object({ applicant_id: null, relationship_to_applicant_freeform: 'Sibling', relationship_to_applicant: Object({ id: 0, value: '' }) }) ], index: 0, first_name: '', middle_name: '', last_name: '', date_of_birth: '2017-01-01' }) ])

@@ -1,5 +1,6 @@
 import Immutable from 'immutable'
 import React from 'react'
+import PropTypes from 'prop-types'
 import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import {OtherAdultsCardField} from 'components/common/OtherAdultsCardField'
 import {addCardAsJS, removeCardWithId, getFocusClassName} from 'helpers/cardsHelper.jsx'
@@ -10,7 +11,7 @@ export default class OtherAdultsCardsGroup extends React.Component {
     super(props)
 
     this.addCard = this.addCard.bind(this)
-    this.handleRelationshipTypeToApplicant = this.handleRelationshipTypeToApplicant.bind(this)
+    this.handleRelationshipTypeChange = this.handleRelationshipTypeChange.bind(this)
     this.onFieldChange = this.onFieldChange.bind(this)
     this.clickClose = this.clickClose.bind(this)
   }
@@ -30,15 +31,16 @@ export default class OtherAdultsCardsGroup extends React.Component {
     this.props.setParentState('other_adults', otherAdultsList.toJS())
   }
 
-  handleRelationshipTypeToApplicant (applicant, value, index, subIndex) {
+  handleRelationshipTypeChange (applicant, value, index, subIndex, type) {
     let itemsList = Immutable.fromJS(this.props.otherAdults)
-    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'relationship_to_applicant_freeform'], value)
+    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
     itemsList = applicant.id ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicant.id) : itemsList
-    this.props.setParentState('other_adults', itemsList.toJS())
+    this.props.setParentState('other_adults', itemsList.toJS())// handleRelationshipTypeToApplicant(index, subIndex, value, 'relationship_to_applicant_freeform', this.props.minorChildren))
   }
 
   render () {
     let otherAdultsList = this.props.otherAdults
+
     return (
       <div className='other_adults_card'>
         <div id='otherAdultsSection' onClick={() => this.props.setFocusState('otherAdultsSection')}
@@ -60,11 +62,9 @@ export default class OtherAdultsCardsGroup extends React.Component {
                         prefixTypes={this.props.prefixTypes}
                         index={index}
                         idPrefix={idPrefix}
-                        relationship_types={this.props.relationship_types}
                         otherAdults={otherAdultsFields}
                         applicants={this.props.applicants}
-                        handleRelationshipTypeToApplicant={this.handleRelationshipTypeToApplicant}
-                        clickClose={this.clickClose}
+                        handleRelationshipTypeChange={this.handleRelationshipTypeChange}
                         onFieldChange={this.onFieldChange}
                         validator={this.props.validator}
                         errors={this.props.errors[index]} />
@@ -83,6 +83,12 @@ export default class OtherAdultsCardsGroup extends React.Component {
       </div>
     )
   }
+}
+
+OtherAdultsCardsGroup.propTypes = {
+  otherAdults: PropTypes.array.isRequired,
+  applicants: PropTypes.array.isRequired
+
 }
 
 OtherAdultsCardsGroup.defaultProps = {
