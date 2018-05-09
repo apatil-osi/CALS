@@ -201,9 +201,7 @@ export default class Rfa01EditView extends React.Component {
               getFocusClassName={this.getFocusClassName}
               hasValidName={this.state.disableSave}
               validator={this.validator}
-              errors={this.state.errors.applicants}
-              handleAppRelationshipsOnAddApplicant={this.handleAppRelationshipsOnAddApplicant}
-              handleAppRelationshipsOnRemoveApplicant={this.handleAppRelationshipsOnRemoveApplicant} />
+              errors={this.state.errors.applicants} />
           </div>
         </ScrollSpy>
         <ScrollSpy onEnter={() => this.handleNavLinkClick('#applicant-residence-card')}>

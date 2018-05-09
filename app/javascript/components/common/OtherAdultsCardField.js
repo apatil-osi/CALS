@@ -87,12 +87,7 @@ export class OtherAdultsCardField extends React.Component {
             })
           }
         </div>
-
-        <div className='col-md-12' style={{borderTop: '0.1rem solid #e8e8e8',
-          padding: '0em',
-          paddingLeft: '1%',
-          margin: '1em 0em',
-          marginLeft: '0em'}} >
+        <div className='col-md-12 other-adult-date-of-birth'>
           <DateField gridClassName='col-md-4'
             id={this.otherAdultDOBId}
             label={'Date of Birth' + isRequiredLabel}
