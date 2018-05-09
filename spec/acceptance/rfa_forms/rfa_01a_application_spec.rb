@@ -122,15 +122,36 @@ RSpec.feature 'RFA01A', js: true do
     fill_in('minor_children[0].date_of_birth', with: '11/11/1111', match: :prefer_exact)
     find('#child_financially_supported0child0Yes').click
     find('#child_adopted0child0Yes').click
-    select 'Male', from: 'minor_gender'
+    select 'Male', from: 'minor_children[0].minor_gender'
     expect(page).to have_button('Submit', disabled: false)
+
+    click_button 'Add another minor +'
+    fill_in('relationship_to_applicant1child0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
+    expect(page).to have_button('Submit', disabled: true)
+    fill_in('minor_children[1].date_of_birth', with: '11/11/1111', match: :prefer_exact)
+    find('#child_financially_supported1child0Yes').click
+    find('#child_adopted1child0Yes').click
+    select 'Male', from: 'minor_children[1].minor_gender'
+    expect(page).to have_button('Submit', disabled: false)
+
+
     fill_in('relationship_to_applicants0adult0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
     expect(page).to have_button('Submit', disabled: true)
     fill_in('other_adults[0].date_of_birth', with: '12/12/1211', match: :prefer_exact)
     fill_in('other_adults[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
     expect(page).to have_button('Submit', disabled: true)
     fill_in('other_adults[0].last_name', with: Faker::Name.last_name, match: :prefer_exact)
+
     expect(page).to have_button('Submit', disabled: false)
+    click_button 'Add another Adult +'
+    fill_in('relationship_to_applicants1adult0relationship_to_applicant_freeform', with: 'child', match: :prefer_exact)
+    expect(page).to have_button('Submit', disabled: true)
+    fill_in('other_adults[1].date_of_birth', with: '12/12/1211', match: :prefer_exact)
+    fill_in('other_adults[1].first_name', with: Faker::Name.first_name, match: :prefer_exact)
+    expect(page).to have_button('Submit', disabled: true)
+    fill_in('other_adults[1].last_name', with: Faker::Name.last_name, match: :prefer_exact)
+    expect(page).to have_button('Submit', disabled: false)
+
     click_button 'Submit'
     # DevNote: this test case will be updated to include more fields as submit
     # functionality is further fleshed out.
