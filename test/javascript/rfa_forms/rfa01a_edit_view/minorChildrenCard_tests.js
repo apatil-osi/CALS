@@ -89,4 +89,28 @@ describe('Verify MinorCardFields', function () {
       expect(handleRelationshipTypeChangeSpy).toHaveBeenCalledWith({ first_name: 'gdfghfhgv', last_name: 'hgbhg', middle_name: '' }, true, 0, 0, 'child_adopted')
     })
   })
+
+  describe('componentWillUnmount test', () => {
+    let relationType = relationshipTypes
+    beforeEach(() => {
+      handleRelationshipTypeChangeSpy = jasmine.createSpy('handleRelationshipTypeChange')
+      onFieldChangeSpy = jasmine.createSpy('onFieldChange')
+
+      let validator = new Validator({})
+      minorChildCardComp = shallow(<MinorCardField
+        index={0}
+        genderTypes={genderTypes.items}
+        relationshipTypes={relationType}
+        applicants={applicants}
+        handleRelationshipTypeChange={handleRelationshipTypeChangeSpy}
+        onFieldChange={onFieldChangeSpy}
+        minorChild={minorChildren}
+        validator={validator} />)
+    })
+
+    it('expects no validations after unmount', () => {
+      expect(minorChildCardComp.instance().props.validator.validations.size).toEqual(5)
+      minorChildCardComp.unmount()
+    })
+  })
 })
