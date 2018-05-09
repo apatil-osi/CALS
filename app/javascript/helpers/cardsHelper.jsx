@@ -113,6 +113,11 @@ export const checkRelationshipFreeformPresence = (relationshipObject, index) => 
   return (relationshipObject && relationshipObject.relationship_to_applicants[index]) ? relationshipObject.relationship_to_applicants[index].relationship_to_applicant_freeform : ''
 }
 
+export const handleRelationshipTypeToApplicant = (itemsList, applicantId, value, index, subIndex, type) => {
+  itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
+  itemsList = applicantId ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicantId) : itemsList
+  return itemsList
+}
 // export const checkFieldsForSubmit = (application) => {
 //   let validationResult = false
 //   let isValidApplicants = true

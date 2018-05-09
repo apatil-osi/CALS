@@ -15,8 +15,8 @@ export class OtherAdultsCardField extends React.Component {
     super(props)
     this.isRelationshipToApplicantObject = this.isRelationshipToApplicantObject.bind(this)
 
-    this.relationshipToApplicantID = this.props.idPrefix + 'relationship_to_applicants[' + this.props.index + '].relationship_to_applicant_freeform'
-    this.ApplicantIdID = this.props.idPrefix + 'relationship_to_applicants[' + this.props.index + '].applicant_id'
+    this.relationshipToApplicantID = this.props.idPrefix + 'relationship_to_applicants[0].relationship_to_applicant_freeform'
+    this.ApplicantIdID = this.props.idPrefix + 'relationship_to_applicants[0].applicant_id'
     this.otherAdultDOBId = this.props.idPrefix + 'date_of_birth'
     this.otherAdultFirstNameID = this.props.idPrefix + 'first_name'
     this.otherAdultMiddleNameID = this.props.idPrefix + 'middle_name'

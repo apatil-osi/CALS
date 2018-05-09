@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import {OtherAdultsCardField} from 'components/common/OtherAdultsCardField'
-import {addCardAsJS, removeCardWithId, getFocusClassName} from 'helpers/cardsHelper.jsx'
+import {addCardAsJS, removeCardWithId, getFocusClassName, handleRelationshipTypeToApplicant} from 'helpers/cardsHelper.jsx'
 import {otherAdultsDefaults} from 'constants/defaultFields'
 
 export default class OtherAdultsCardsGroup extends React.Component {
@@ -33,9 +33,8 @@ export default class OtherAdultsCardsGroup extends React.Component {
 
   handleRelationshipTypeChange (applicant, value, index, subIndex, type) {
     let itemsList = Immutable.fromJS(this.props.otherAdults)
-    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
-    itemsList = applicant.id ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicant.id) : itemsList
-    this.props.setParentState('other_adults', itemsList.toJS())// handleRelationshipTypeToApplicant(index, subIndex, value, 'relationship_to_applicant_freeform', this.props.minorChildren))
+    itemsList = handleRelationshipTypeToApplicant(itemsList, applicant.id, value, index, subIndex, type)
+    this.props.setParentState('other_adults', itemsList.toJS())
   }
 
   render () {

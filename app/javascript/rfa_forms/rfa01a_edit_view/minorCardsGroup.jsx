@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import {MinorCardField} from './minorCardField'
-import {addCardAsJS, removeCardWithId, getFocusClassName} from 'helpers/cardsHelper.jsx'
+import {addCardAsJS, removeCardWithId, getFocusClassName, handleRelationshipTypeToApplicant} from 'helpers/cardsHelper.jsx'
 import {minorDefaults} from 'constants/defaultFields'
 
 export default class MinorCardsGroup extends React.Component {
@@ -32,8 +32,7 @@ export default class MinorCardsGroup extends React.Component {
 
   handleRelationshipTypeChange (applicant, value, index, subIndex, type) {
     let itemsList = Immutable.fromJS(this.props.minorChildren)
-    itemsList = itemsList.setIn([index, 'relationship_to_applicants', subIndex, type], value)
-    itemsList = applicant.id ? itemsList.setIn([index, 'relationship_to_applicants', subIndex, 'applicant_id'], applicant.id) : itemsList
+    itemsList = handleRelationshipTypeToApplicant(itemsList, applicant.id, value, index, subIndex, type)
     this.props.setParentState('minor_children', itemsList.toJS())// handleRelationshipTypeToApplicant(index, subIndex, value, 'relationship_to_applicant_freeform', this.props.minorChildren))
   }
 

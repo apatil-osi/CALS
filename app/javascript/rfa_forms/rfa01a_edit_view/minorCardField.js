@@ -19,10 +19,10 @@ export class MinorCardField extends React.Component {
     this.isRelationShipToApplicantObject = this.isRelationShipToApplicantObject.bind(this)
 
     this.minorDOBId = this.props.idPrefix + 'date_of_birth'
-    this.relationshipToApplicantID = this.props.idPrefix + 'relationship_to_applicants[' + this.props.index + '].relationship_to_applicant_freeform'
+    this.relationshipToApplicantID = this.props.idPrefix + 'relationship_to_applicants[0].relationship_to_applicant_freeform'
     this.genderID = this.props.idPrefix + 'gender'
-    this.childFinanciallySupportedID = this.props.idPrefix + 'relationship_to_applicants[' + this.props.index + '].child_financially_supported'
-    this.childAdoptedID = this.props.idPrefix + 'relationship_to_applicants[' + this.props.index + '].child_adopted'
+    this.childFinanciallySupportedID = this.props.idPrefix + 'relationship_to_applicants[0].child_financially_supported'
+    this.childAdoptedID = this.props.idPrefix + 'relationship_to_applicants[0].child_adopted'
 
     this.props.validator.addFieldValidation(this.minorDOBId, dateValidator)
     this.props.validator.addFieldValidation(this.minorDOBId,
