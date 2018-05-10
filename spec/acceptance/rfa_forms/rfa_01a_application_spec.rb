@@ -6,7 +6,7 @@ require 'faker'
 
 RSpec.feature 'RFA01A', js: true do
 
-  before(:each) do 
+  before(:each) do
     visit root_path
     end
     scenario 'Dashboard page', set_auth_header: true do
@@ -295,7 +295,7 @@ RSpec.feature 'RFA01A', js: true do
         expect(page).to have_content('ADD ANOTHER PERSON +')
         click_button('Add Another Person +')
         second_person = find(:xpath, '//*[@id="aboutResidence"]/div[2]/div/div/div/div/div[6]/div[2]')
-        within second_person do 
+        within second_person do
             select 'Miss', from: 'residence.other_people_using_residence_as_mailing[1].name_prefix'
             fill_in('residence.other_people_using_residence_as_mailing[1].first_name', with: Faker::Name.first_name, match: :prefer_exact)
             fill_in('residence.other_people_using_residence_as_mailing[1].last_name', with: Faker::Name.last_name, match: :prefer_exact)
@@ -438,4 +438,14 @@ RSpec.feature 'RFA01A', js: true do
     expect(page).to have_select('minor_gender', with_options: ['', 'Male', 'Female'])
     expect(page).to have_select('residenceTypes', with_options: %w[Own Rent Lease])
   end
+
+  scenario 'verify breadcrumb nav', set_auth_header: true do
+    visit root_path
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+    click_link  'RFA Application list'
+    expect(page).to have_content 'Welcome to Certification, Approval, and Licensing Services (CALS)'
+  end
+
 end
