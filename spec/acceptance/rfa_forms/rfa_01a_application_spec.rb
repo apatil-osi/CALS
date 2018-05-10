@@ -357,7 +357,7 @@ RSpec.feature 'RFA01A', js: true do
 
     find('#child_financially_supported0child0Yes').click
     find('#child_adopted0child0Yes').click
-    select 'Male', from: 'minor_gender'
+    select 'Male', from: 'minor_children[0].minor_gender'
     click_button('Save Progress')
     visit page.driver.current_url
     expect(find_field('relationship_to_applicant0child0relationship_to_applicant_freeform').value).to eq 'child'
@@ -448,7 +448,7 @@ RSpec.feature 'RFA01A', js: true do
     click_button 'Create RFA Application (Form 01)'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
-    expect(page).to have_select('minor_gender', with_options: ['', 'Male', 'Female'])
+    expect(page).to have_select('minor_children[0].minor_gender', with_options: ['', 'Male', 'Female'])
     expect(page).to have_select('residenceTypes', with_options: %w[Own Rent Lease])
   end
 end
