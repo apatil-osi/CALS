@@ -83,4 +83,9 @@ describe('Verify More About Applican', () => {
     emailField.simulate('change', {target: {value: 'test2@gmail.com'}})
     expect(setCardState).toHaveBeenCalledWith('email', 'test2@gmail.com')
   })
+
+  it('expects the component to unmount', () => {
+    aboutApplicantComp.unmount()
+    expect(aboutApplicantComp.instance()).toEqual(null)
+  })
 })

@@ -108,9 +108,10 @@ describe('Verify MinorCardFields', function () {
         validator={validator} />)
     })
 
-    it('expects no validations after unmount', () => {
+    it('expects the component to unmount', () => {
       expect(minorChildCardComp.instance().props.validator.validations.size).toEqual(5)
       minorChildCardComp.unmount()
+      expect(minorChildCardComp.instance()).toEqual(null)
     })
   })
 })
