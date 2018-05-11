@@ -78,4 +78,11 @@ describe('Verify other adultsFields', function () {
     lastNameField.simulate('change', {target: {value: 'test'}})
     expect(onFieldChangeSpy).toHaveBeenCalledWith(0, 'test', 'last_name')
   })
+
+  it('verifies component did unmount', () => {
+    let instance = otherAdultsCardComp.instance()
+    expect(instance.props.validator.validations.size).toEqual(4)
+    otherAdultsCardComp.unmount()
+    expect(instance.props.validator.validations.size).toEqual(0)
+  })
 })
