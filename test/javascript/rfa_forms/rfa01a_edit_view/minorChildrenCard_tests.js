@@ -109,9 +109,10 @@ describe('Verify MinorCardFields', function () {
     })
 
     it('expects the component to unmount', () => {
-      expect(minorChildCardComp.instance().props.validator.validations.size).toEqual(5)
+      let instance = minorChildCardComp.instance()
+      expect(instance.props.validator.validations.size).toEqual(5)
       minorChildCardComp.unmount()
-      expect(minorChildCardComp.instance()).toEqual(null)
+      expect(instance.props.validator.validations.size).toEqual(0)
     })
   })
 })

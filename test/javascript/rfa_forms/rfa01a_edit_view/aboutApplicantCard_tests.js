@@ -85,7 +85,9 @@ describe('Verify More About Applican', () => {
   })
 
   it('expects the component to unmount', () => {
+    let instance = aboutApplicantComp.instance()
+    expect(instance.props.validator.validations.size).toEqual(3)
     aboutApplicantComp.unmount()
-    expect(aboutApplicantComp.instance()).toEqual(null)
+    expect(instance.props.validator.validations.size).toEqual(0)
   })
 })
