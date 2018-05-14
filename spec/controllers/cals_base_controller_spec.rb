@@ -23,7 +23,7 @@ describe CalsBaseController do
   it 'redirects when token invalid' do
     allow(Cwds::Authentication).to receive(:authentication_url).with(AUTHENTICATION_API_BASE_URL, 'http://test.host/custom').and_return(false)
     process :custom, method: :get
-    expect(response).to render_template('errors/forbidden_page')
+    expect(response).to render_template('errors/invalid_login_page')
   end
 
 end

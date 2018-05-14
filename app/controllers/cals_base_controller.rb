@@ -71,7 +71,8 @@ class CalsBaseController < ApplicationController
         store_token_in_redis(token)
         session[:user_details] = Cwds::Authentication.store_user_details_from_token(token)
       else
-          render 'errors/forbidden_page'
+          delete_user_from_session
+          render 'errors/invalid_login_page'
       end
     end
   end
