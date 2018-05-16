@@ -18,7 +18,7 @@ const RfaListPageHeaderButtons = ({
               label='Search for Facility'
             />
           </div> : null
-      }    
+      }
       {
         !disbaleRfaApplication
           ? <div className='col-xs-4'>
