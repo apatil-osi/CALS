@@ -20,10 +20,22 @@ describe CalsBaseController do
     expect(session['token']).to eq('abcd')
   end
 
-  it 'redirects when token invalid' do
-    allow(Cwds::Authentication).to receive(:authentication_url).with(AUTHENTICATION_API_BASE_URL, 'http://test.host/custom').and_return(false)
-    process :custom, method: :get
+  it 'redirects to invalid login page when token invalid' do
+    allow(Cwds::Authentication).to receive(:token_generation).with('dcba', AUTHENTICATION_API_BASE_URL).and_return('abcd')
+    allow(Cwds::Authentication).to receive(:token_validation).with('abcd', AUTHENTICATION_API_BASE_URL).and_return(false)
+    process :custom, method: :get, params: {accessCode: 'dcba'}
     expect(response).to render_template('errors/invalid_login_page')
   end
+
+
+  it 'redirects to invalid login page when token invalid' do
+    allow(Cwds::Authentication).to receive(:token_generation).with('', AUTHENTICATION_API_BASE_URL).and_return(nil)
+  #  allow(Cwds::Authentication).to receive(:token_validation).with('abcd', AUTHENTICATION_API_BASE_URL).and_return(false)
+    process :custom, method: :get, params: {accessCode: nil}
+    expect(response).to render_template('errors/invalid_login_page')
+  end
+
+
+
 
 end

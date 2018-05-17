@@ -15,8 +15,6 @@ class CalsBaseController < ApplicationController
     User.new(JSON.parse(session[:user_details])) if session[:user_details].present?
   end
 
-
-
   private
 
   def check_for_priviliges
@@ -64,15 +62,19 @@ class CalsBaseController < ApplicationController
   end
 
   def authenticate_with_cwds
-    token = Cwds::Authentication.token_generation(params[:accessCode], AUTHENTICATION_API_BASE_URL) if session[:user_details].blank?
-    session.delete(:token) if token.present?
-    if session[:token].blank?
-      if Cwds::Authentication.token_validation(token, AUTHENTICATION_API_BASE_URL)
-        store_token_in_redis(token)
-        session[:user_details] = Cwds::Authentication.store_user_details_from_token(token)
+    if session[:user_details].blank?
+      session.delete(:token) if session[:token].present?
+      if params[:accessCode]
+        token = Cwds::Authentication.token_generation(params[:accessCode], AUTHENTICATION_API_BASE_URL) if session[:user_details].blank?
+        if Cwds::Authentication.token_validation(token, AUTHENTICATION_API_BASE_URL)
+          store_token_in_redis(token)
+          session[:user_details] = Cwds::Authentication.store_user_details_from_token(token)
+        else
+          delete_user_from_session
+          render 'errors/invalid_login_page'
+        end
       else
-        delete_user_from_session
-        render 'errors/invalid_login_page'
+        redirect_to Cwds::Authentication.authentication_url(AUTHENTICATION_API_BASE_URL, CALS_LOGIN_REDIRECT_URL)
       end
     end
   end
