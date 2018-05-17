@@ -8,7 +8,7 @@ RSpec.feature 'RFA01C', js: true do
 
   scenario 'validate rfa01c', set_auth_header: true do
     visit root_path
-    click_button 'Create RFA Application (Form 01)'
+    click_button 'Create RFA Application'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
@@ -50,7 +50,7 @@ RSpec.feature 'RFA01C', js: true do
 
   scenario 'show error validation message on RFA01C', set_auth_header: true do
     visit root_path
-    click_button 'Create RFA Application (Form 01)'
+    click_button 'Create RFA Application'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
@@ -74,7 +74,7 @@ RSpec.feature 'RFA01C', js: true do
 
   scenario 'validate submit disabled when Rfa-01A is not valid', set_auth_header: true do
     visit root_path
-    click_button 'Create RFA Application (Form 01)'
+    click_button 'Create RFA Application'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
@@ -91,9 +91,9 @@ RSpec.feature 'RFA01C', js: true do
     expect(page).to have_button('Submit', disabled: true)
   end
 
-  scenario 'validate submit disabled when Rfa-01A is not valid', set_auth_header: true do
+  scenario 'validate submit enabled when Rfa-01A is valid', set_auth_header: true do
     visit root_path
-    click_button 'Create RFA Application (Form 01)'
+    click_button 'Create RFA Application'
     expect(page).to have_content 'Rfa-01A Section Summary'
     page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
