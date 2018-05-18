@@ -82,6 +82,26 @@ describe('Rfa01EditView test', () => {
                 'preferred': false
               }
             ]
+          },
+          {
+            'id': 397,
+            'first_name': 'gasfdasdsfwef',
+            'middle_name': '',
+            'last_name': 'ljjlkj',
+            'other_names': [],
+            'date_of_birth': '1111-11-11',
+            'driver_license_number': '',
+            'email': '',
+            'phones': [
+              {
+                'phone_type': {
+                  'value': 'Home',
+                  'id': 2
+                },
+                'number': '1111111111',
+                'preferred': false
+              }
+            ]
           }
         ],
         'is_initial_application': false,
