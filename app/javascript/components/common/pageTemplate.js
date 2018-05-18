@@ -3,9 +3,12 @@ import PropTypes from 'prop-types'
 import LogoHeader from 'components/common/logoHeader'
 import PageHeader from 'components/common/pageHeader'
 import RfaSideBar from 'rfa_forms/rfa_sidebar/index'
+import Rfa01PageHeaderButtons from 'components/common/rfa01PageHeaderButtons'
 import Button from 'components/common/button'
 import ApiErrorMessages from 'components/common/errors/apiErrorMessages'
 import BreadCrumb from 'components/common/breadCrumb'
+import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
+
 const PageTemplate = ({
   headerLabel,
   pageSubHeader,
@@ -21,6 +24,7 @@ const PageTemplate = ({
   childIdentified,
   isNavLinkActive,
   handleNavLinkClick,
+  pageHeaderButtons,
   errors,
   children
 }) => (
@@ -28,14 +32,18 @@ const PageTemplate = ({
     <LogoHeader />
     <PageHeader
       headerLabel={headerLabel}
-      disableSave={disableSave}
       pageSubHeader={pageSubHeader}
-      onSaveProgressClick={onSaveProgressClick}
-      disableSubmit={disableSubmit}
-      onSubmitClick={onSubmitClick} />
+      pageHeaderButtons={
+        <Rfa01PageHeaderButtons
+          disableSave={disableSave}
+          onSaveProgressClick={onSaveProgressClick}
+          disableSubmit={disableSubmit}
+          onSubmitClick={onSubmitClick}
+        />}
+    />
     <div>
       <BreadCrumb
-        navigationElements={[<a href='/'>RFA Application list</a>]} />
+        navigationElements={[<a href={urlPrefixHelper('/')}>RFA Application list</a>]} />
     </div>
     <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
       <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
@@ -59,6 +67,7 @@ const PageTemplate = ({
 
 PageTemplate.propTypes = {
   headerLabel: PropTypes.string,
+  pageHeaderButtons: PropTypes.node,
   pageSubHeader: PropTypes.string,
   buttonId: PropTypes.string,
   buttonLabel: PropTypes.string,
