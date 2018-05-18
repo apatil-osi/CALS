@@ -222,8 +222,8 @@ export default class Rfa01EditView extends React.Component {
           </div>
         </ScrollSpy>
 
-        { applicantsAsJs.length >= 2 ?
-          <ScrollSpy onEnter={() => this.handleNavLinkClick('#relationship-between-applicants-card')}>
+        { applicantsAsJs.length >= 2
+          ? <ScrollSpy onEnter={() => this.handleNavLinkClick('#relationship-between-applicants-card')}>
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
               id='relationship-between-applicants-card'>
               <h3>III.<span>Relationship Between Applicant</span></h3>
@@ -240,8 +240,8 @@ export default class Rfa01EditView extends React.Component {
                 applicants={applicantsAsJs} />
             </div>
           </ScrollSpy>
-        : null
-      }
+          : null
+        }
         <ScrollSpy onEnter={() => this.handleNavLinkClick('#minor-child-card')}>
           <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'
             id='minor-child-card'>
