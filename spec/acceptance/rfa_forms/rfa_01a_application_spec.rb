@@ -333,12 +333,6 @@ RSpec.feature 'RFA01A', js: true do
     click_button('Save Progress')
   end
 
-
-
-
-
-
-
   scenario 'validate Residence card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application'

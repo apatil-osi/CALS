@@ -82,26 +82,6 @@ describe('Rfa01EditView test', () => {
                 'preferred': false
               }
             ]
-          },
-          {
-            'id': 397,
-            'first_name': 'gasfdasdsfwef',
-            'middle_name': '',
-            'last_name': 'ljjlkj',
-            'other_names': [],
-            'date_of_birth': '1111-11-11',
-            'driver_license_number': '',
-            'email': '',
-            'phones': [
-              {
-                'phone_type': {
-                  'value': 'Home',
-                  'id': 2
-                },
-                'number': '1111111111',
-                'preferred': false
-              }
-            ]
           }
         ],
         'is_initial_application': false,
@@ -158,5 +138,19 @@ describe('Rfa01EditView test', () => {
     countyCardField.simulate('change', {target: {options: {'0': {value: '2', text: 'Alpine'}, selectedIndex: 0}}})
     // _Rfa01BEditView.instance().setApplicationState('application_county', { value: 'Alameda', id: 1 })
     expect(setApplicationStateSpy).toHaveBeenCalledWith('application_county', { id: '2', value: 'Alpine' })
+  })
+
+  it('tests sidebar links to be 8 before applicant is added', () => {
+    let sideBar = _Rfa01EditView.find('.side-barrfa01a').hostNodes()
+    let navLinks = sideBar.find('.navlink')
+    expect(navLinks.length).toEqual(8)
+    _Rfa01EditView.find('#addAnotherApplicant').simulate('click')
+    sideBar = _Rfa01EditView.find('.side-barrfa01a').hostNodes()
+    navLinks = sideBar.find('.navlink')
+    expect(navLinks.length).toEqual(9)
+    _Rfa01EditView.find('#addAnotherApplicant').simulate('click')
+    sideBar = _Rfa01EditView.find('.side-barrfa01a').hostNodes()
+    navLinks = sideBar.find('.navlink')
+    expect(navLinks.length).toEqual(9)
   })
 })
