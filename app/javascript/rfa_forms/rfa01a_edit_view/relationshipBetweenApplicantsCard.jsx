@@ -18,6 +18,12 @@ export default class RelationshipBetweenApplicantsCard extends React.Component {
 
   setState (key, value) {
     let newData = Immutable.fromJS(this.props.relationshipBetweenApplicants)
+    if (key === 'relationship_type') {
+      newData = newData.set('other_relationship', '')
+      newData = newData.set('date_of_relationship', '')
+      newData = newData.set('place_of_relationship_city', '')
+      newData = newData.set('place_of_relationship_state', null)
+    }
     newData = newData.set(key, value)
     this.props.setParentState('applicants_relationship', newData.toJS())
   }

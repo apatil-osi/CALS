@@ -34,6 +34,13 @@ export const relationshipToApplicantDefaults = Object.freeze({
   relationship_to_applicant_freeform: ''
 })
 
+export const blankRelationshipBetweenApplicantsValues = Object.freeze({
+  relationship_type: null,
+  date_of_relationship: '',
+  place_of_relationship_city: '',
+  place_of_relationship_state: null
+})
+
 export const blankIdentifiedChild = Object.freeze({
   first_name: '',
   middle_name: '',
