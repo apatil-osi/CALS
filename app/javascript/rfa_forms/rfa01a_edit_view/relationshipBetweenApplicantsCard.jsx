@@ -2,13 +2,7 @@ import React from 'react'
 import Immutable from 'immutable'
 import RelationshipBetweenApplicantsFields from './relationshipBetweenApplicantsFields'
 import {getFocusClassName} from 'helpers/cardsHelper.jsx'
-
-const blankValues = Object.freeze({
-  relationship_type: null,
-  date_of_relationship: '',
-  place_of_relationship_city: '',
-  place_of_relationship_state: null
-})
+import {blankRelationshipBetweenApplicantsValues} from 'constants/defaultFields'
 
 export default class RelationshipBetweenApplicantsCard extends React.Component {
   constructor (props) {
@@ -59,6 +53,6 @@ export default class RelationshipBetweenApplicantsCard extends React.Component {
 }
 
 RelationshipBetweenApplicantsCard.defaultProps = {
-  relationshipBetweenApplicants: blankValues,
+  relationshipBetweenApplicants: blankRelationshipBetweenApplicantsValues,
   errors: {}
 }
