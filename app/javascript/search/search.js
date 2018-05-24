@@ -4,11 +4,10 @@ import SearchGrid from './searchGrid'
 import SearchInput from './searchInput'
 import SearchList from './searchList'
 import SearchNotFound from './searchNotFound'
-import SearchDetails from './searchDetails'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
 import {checkforNull, checkForValue} from 'search/common/commonUtils'
-import {handleInputChange, searchApiCall, handleToggle, handleResetForm, handlePageNumberChange, handleDropDownAndPageNumberChange, searchDictionariesCall} from 'actions/searchActions'
+import {handleInputChange, searchApiCall, handleToggle, handleResetForm, handlePageNumberChange, handleDropDownAndPageNumberChange, searchDictionariesCall, handleScrollBarChange} from 'actions/searchActions'
 import {connect} from 'react-redux'
 import {PageHeader} from 'react-wood-duck'
 import BreadCrumb from 'components/common/breadCrumb'
@@ -18,6 +17,10 @@ import Pagination from './pagination'
 class Search extends React.Component {
   componentDidMount () {
     this.props.searchDictionariesCall()
+  }
+
+  componentDidUpdate () {
+    this.props.handleScrollBarChange()
   }
 
   searchApiCallParams (fromValue, sizeValue) {
@@ -40,6 +43,15 @@ class Search extends React.Component {
   render () {
     const initialLoad = this.props.searchResults === undefined
     const searchResponseHasValues = this.props.searchResults && this.props.searchResults.length > 0
+
+    const paginationRender = <Pagination
+      paginationClassName='top_pagination'
+      totalNoOfFacilities={this.props.totalNoOfResults}
+      sizeValue={this.props.sizeValue}
+      handleDropDownAndPageNumberChange={this.props.handleDropDownAndPageNumberChange}
+      handlePageNumberChange={this.props.handlePageNumberChange}
+      pageNumber={this.props.pageNumber}
+      searchApiCall={this.searchApiCallParams.bind(this)} />
 
     return (
       <div className='search_page'>
@@ -65,30 +77,32 @@ class Search extends React.Component {
           />
         </div>
         {searchResponseHasValues &&
-          <SearchDetails
-            totalNoOfFacilities={this.props.totalNoOfResults}
-            sizeValue={this.props.sizeValue}
-            handleDropDownAndPageNumberChange={this.props.handleDropDownAndPageNumberChange}
-            handlePageNumberChange={this.props.handlePageNumberChange}
-            pageNumber={this.props.pageNumber}
-            searchApiCall={this.searchApiCallParams.bind(this)}
-            handleToggle={this.props.handleToggle} />}
+          (
+            <div className='search-toggle col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+              <span className='search_details col-xs-12 col-sm-11 col-md-11 col-lg-11'>
+                <p>Search Results:</p>
+                {paginationRender}
+              </span>
+              <span className='toggle_result col-xs-12 col-sm-1 col-md-1 col-lg-1'>
+                <span id='toggle_button' onClick={this.props.handleToggle} className={(this.props.isToggled ? 'line_off-icon' : 'line_on-icon') + ' ' + 'navbar-brand'} alt={'list'} />
+                <span onClick={this.props.handleToggle} className={(this.props.isToggled ? 'grid_on-icon' : 'grid_off-icon') + ' ' + 'navbar-brand'} alt={'grid'} />
+              </span>
+            </div>
+          )
+        }
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.props.isToggled && <SearchGrid searchResults={this.props.searchResults} />}
           {!this.props.isToggled && <SearchList searchResults={this.props.searchResults} />}
           {(!searchResponseHasValues && !initialLoad) && <SearchNotFound errors={this.props.errors.issue_details} errorMessage={this.props.errorMessage} />}
         </div>
-        {searchResponseHasValues &&
-        <div className='search_details col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <Pagination
-            paginationClassName='bottom_pagination'
-            totalNoOfFacilities={this.props.totalNoOfResults}
-            sizeValue={this.props.sizeValue}
-            handleDropDownAndPageNumberChange={this.props.handleDropDownAndPageNumberChange}
-            handlePageNumberChange={this.props.handlePageNumberChange}
-            pageNumber={this.props.pageNumber}
-            searchApiCall={this.searchApiCallParams.bind(this)} />
-        </div>
+        {searchResponseHasValues && this.props.isScrollBarVisible &&
+            (
+              <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+                <span className='search_details col-xs-12 col-sm-11 col-md-11 col-lg-11'>
+                  {paginationRender}
+                </span>
+              </div>
+            )
         }
       </div>
     )
@@ -128,9 +142,10 @@ function mapStateToProps (state) {
     sizeValue: state.searchReducer.sizeValue,
     pageNumber: state.searchReducer.pageNumber,
     errors: state.searchReducer.errors,
-    errorMessage: state.searchReducer.errorMessage
+    errorMessage: state.searchReducer.errorMessage,
+    isScrollBarVisible: state.searchReducer.isScrollBarVisible
   }
 }
 
 export {Search}
-export default connect(mapStateToProps, {handleInputChange, searchApiCall, handleToggle, handleResetForm, handlePageNumberChange, handleDropDownAndPageNumberChange, searchDictionariesCall})(Search)
+export default connect(mapStateToProps, {handleInputChange, searchApiCall, handleToggle, handleResetForm, handlePageNumberChange, handleDropDownAndPageNumberChange, searchDictionariesCall, handleScrollBarChange})(Search)
