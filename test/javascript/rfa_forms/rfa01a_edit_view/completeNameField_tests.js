@@ -67,16 +67,17 @@ describe('Verify Complete Name Field Component', () => {
     component.unmount()
     expect(instance.props.validator.validations.size).toEqual(0)
 
-  it('Make sure inputted text is equal to the restricted max length', () => {
-    const result = component.find('#first_name').hostNodes()
-    expect(result.props().maxLength).toEqual('20')
-  })
-  it('Make sure inputted text is equal to the restricted max length', () => {
-    const result = component.find('#middle_name').hostNodes()
-    expect(result.props().maxLength).toEqual('20')
-  })
-  it('Make sure inputted text is equal to the restricted max length', () => {
-    const result = component.find('#last_name').hostNodes()
-    expect(result.props().maxLength).toEqual('25')
+    it('Make sure inputted text is equal to the restricted max length', () => {
+      const result = component.find('#first_name').hostNodes()
+      expect(result.props().maxLength).toEqual('20')
+    })
+    it('Make sure inputted text is equal to the restricted max length', () => {
+      const result = component.find('#middle_name').hostNodes()
+      expect(result.props().maxLength).toEqual('20')
+    })
+    it('Make sure inputted text is equal to the restricted max length', () => {
+      const result = component.find('#last_name').hostNodes()
+      expect(result.props().maxLength).toEqual('25')
+    })
   })
 })
