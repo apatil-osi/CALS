@@ -16,7 +16,7 @@ RSpec.feature 'RFA01A', js: true do
   scenario 'validate applicant card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application'
-    expect(page).to have_content 'Rfa-01A Section Summary'
+    expect(page).to have_content 'Applicant 1 - Information'
   end
 
   scenario 'validate full applicant card', set_auth_header: true do
