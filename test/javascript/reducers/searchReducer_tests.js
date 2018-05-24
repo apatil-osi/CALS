@@ -1,9 +1,13 @@
 import {searchReducer} from 'reducers/searchReducer'
+import {countyTypes, facilityTypes, user} from '../helpers/constants'
 import {
   searchApiCall,
+  fetchDictionarySuccess,
+  searchDictionariesCall,
   handleInputChange,
   handleDropDownChange,
   handleDropDownAndPageNumberChange,
+  handleScrollBarChange,
   handlePageNumberChange,
   handleResetForm,
   handleToggle,
@@ -29,7 +33,8 @@ describe('Verify searchReducer', () => {
       facilityTypes: [],
       errors: {},
       userCounty: '',
-      errorMessage: undefined
+      errorMessage: undefined,
+      isScrollBarVisible: false
     }
   })
 
@@ -59,6 +64,31 @@ describe('Verify searchReducer', () => {
     outputState.totalNoOfResults = 1
 
     expect(searchReducer(undefined, fetchSuccessAction)).toEqual(outputState)
+  })
+
+  it('Search dictionary fetch call returns empty countyTypes and facilityTypes', () => {
+    const searchDictionariesCallAction = searchDictionariesCall()
+
+    let outputState = initialState
+    outputState.countyTypes = []
+    outputState.facilityTypes = []
+    expect(searchReducer(undefined, searchDictionariesCallAction)).toEqual(outputState)
+  })
+
+  it('Search dictionary fetch call success returns countyTypes and facilityTypes', () => {
+    const fetchDictionarySuccessAction = fetchDictionarySuccess({countyTypes, facilityTypes, user})
+
+    let outputState = initialState
+    outputState.countyTypes = countyTypes
+    outputState.facilityTypes = facilityTypes
+    outputState.inputData = {countyValue: '56'}
+    outputState.isToggled = true
+    outputState.pageNumber = 1
+    outputState.sizeValue = 10
+    outputState.totalNoOfResults = 0
+    outputState.userCounty = '56'
+
+    expect(searchReducer(undefined, fetchDictionarySuccessAction)).toEqual(outputState)
   })
 
   it('fetch call completion returns updated state no search results and a error message', () => {
@@ -170,5 +200,14 @@ describe('Verify searchReducer', () => {
     outputState.pageNumber = 2
 
     expect(searchReducer(undefined, handleDropDownAndPageNumberChangeAction)).toEqual(outputState)
+  })
+
+  it('scroll bar visible change', () => {
+    const handleScrollBarChangeAction = handleScrollBarChange()
+
+    let outputState = initialState
+    outputState.isScrollBarVisible = false
+
+    expect(searchReducer(undefined, handleScrollBarChangeAction)).toEqual(outputState)
   })
 })
