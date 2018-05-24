@@ -1,0 +1,2766 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms?expanded=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:09 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:09
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "id" : 554,
+            "application_county" : {
+              "value" : "Kings",
+              "id" : 16
+            },
+            "applicants" : [ {
+              "id" : 362,
+              "first_name" : "Jarvis",
+              "middle_name" : "",
+              "last_name" : "Beahan",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Beahan, Jarvis",
+            "is_initial_application" : false
+          }, {
+            "id" : 549,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 356,
+              "first_name" : "alpha0",
+              "middle_name" : "",
+              "last_name" : "beta0",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            }, {
+              "id" : 357,
+              "first_name" : "alpha1",
+              "middle_name" : "",
+              "last_name" : "beta1",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "other_adults" : [ {
+              "id" : 131,
+              "first_name" : "alpha2",
+              "middle_name" : "",
+              "last_name" : "beta2",
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : ""
+              } ]
+            } ],
+            "resource_family_name" : "beta0, alpha0 & beta1, alpha1",
+            "is_initial_application" : false
+          }, {
+            "id" : 562,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants_relationship" : {
+              "relationship_type" : {
+                "value" : "Cohabitants",
+                "id" : 4
+              },
+              "other_relationship" : "test",
+              "place_of_relationship_city" : "",
+              "place_of_relationship_state" : {
+                "value" : "Alaska",
+                "id" : "AK"
+              }
+            },
+            "applicants" : [ {
+              "id" : 370,
+              "first_name" : "Issac",
+              "middle_name" : "",
+              "last_name" : "Heaney",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            }, {
+              "id" : 371,
+              "first_name" : "Graham",
+              "middle_name" : "",
+              "last_name" : "Price",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            }, {
+              "id" : 372,
+              "first_name" : "Francesco",
+              "middle_name" : "",
+              "last_name" : "Labadie",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Heaney, Issac & Price, Graham",
+            "is_initial_application" : false
+          }, {
+            "id" : 561,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 369,
+              "first_name" : "Lexi",
+              "middle_name" : "k",
+              "last_name" : "Huel",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Huel, Lexi",
+            "is_initial_application" : false
+          }, {
+            "id" : 557,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants_relationship" : {
+              "relationship_type" : {
+                "value" : "Cohabitants",
+                "id" : 4
+              },
+              "other_relationship" : "test",
+              "place_of_relationship_city" : "",
+              "place_of_relationship_state" : {
+                "value" : "Alaska",
+                "id" : "AK"
+              }
+            },
+            "applicants" : [ {
+              "id" : 365,
+              "first_name" : "Janelle",
+              "middle_name" : "",
+              "last_name" : "Kunde",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            }, {
+              "id" : 366,
+              "first_name" : "Noemi",
+              "middle_name" : "",
+              "last_name" : "Gorczany",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Kunde, Janelle & Gorczany, Noemi",
+            "is_initial_application" : false
+          }, {
+            "id" : 566,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "residence" : {
+              "addresses" : [ {
+                "street_address" : "",
+                "zip" : "",
+                "city" : "",
+                "type" : {
+                  "value" : "Residential",
+                  "id" : 1
+                }
+              }, {
+                "street_address" : "mailing address here",
+                "zip" : "12345",
+                "city" : "secondary city",
+                "type" : {
+                  "value" : "Mailing",
+                  "id" : 3
+                }
+              } ],
+              "physical_mailing_similar" : false,
+              "residence_ownership" : {
+                "value" : "Own",
+                "id" : 1
+              },
+              "weapon_in_home" : true,
+              "body_of_water_exist" : true,
+              "body_of_water_description" : "",
+              "others_using_residence_as_mailing" : true,
+              "other_people_using_residence_as_mailing" : [ {
+                "name_prefix" : {
+                  "value" : "Miss",
+                  "id" : 5
+                },
+                "first_name" : "Louie",
+                "middle_name" : "",
+                "last_name" : "Green",
+                "name_suffix" : {
+                  "value" : "MD",
+                  "id" : 7
+                }
+              }, {
+                "name_prefix" : {
+                  "value" : "Mr.",
+                  "id" : 1
+                },
+                "first_name" : "Verdie",
+                "middle_name" : "",
+                "last_name" : "Keebler",
+                "name_suffix" : {
+                  "value" : "II",
+                  "id" : 2
+                }
+              } ],
+              "directions_to_home" : "directions goes here",
+              "home_languages" : [ {
+                "value" : "American Sign Language",
+                "id" : 1
+              }, {
+                "value" : "Armenian",
+                "id" : 3
+              } ]
+            },
+            "applicants" : [ {
+              "id" : 375,
+              "first_name" : "Cordie",
+              "middle_name" : "k",
+              "last_name" : "Lesch",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : "",
+              "employment" : {
+                "employer_name" : "",
+                "occupation" : "",
+                "income_type" : {
+                  "value" : "yearly",
+                  "id" : 1
+                },
+                "physical_address" : {
+                  "street_address" : "2870 something else",
+                  "city" : "",
+                  "zip" : "12345"
+                }
+              }
+            } ],
+            "resource_family_name" : "Lesch, Cordie",
+            "is_initial_application" : false
+          }, {
+            "id" : 674,
+            "applicants_history" : {
+              "former_spouses" : [ {
+                "applicant_id" : 433,
+                "first_name" : "",
+                "middle_name" : "",
+                "last_name" : "",
+                "place_of_marriage_city" : "",
+                "place_of_marriage_end_city" : ""
+              } ],
+              "adult_children" : [ {
+                "first_name" : "",
+                "middle_name" : "",
+                "last_name" : "",
+                "relationship_to_applicants" : [ { } ],
+                "address" : {
+                  "street_address" : "",
+                  "zip" : "",
+                  "city" : ""
+                }
+              } ]
+            },
+            "applicants" : [ {
+              "id" : 433,
+              "first_name" : "Super",
+              "middle_name" : "k",
+              "last_name" : "Man",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Man, Super",
+            "is_initial_application" : false
+          }, {
+            "id" : 570,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants_history" : {
+              "former_spouses" : [ {
+                "applicant_id" : 380,
+                "first_name" : "",
+                "middle_name" : "",
+                "last_name" : "",
+                "place_of_marriage_city" : "",
+                "place_of_marriage_end_city" : ""
+              } ],
+              "adult_children" : [ {
+                "first_name" : "",
+                "middle_name" : "",
+                "last_name" : "",
+                "relationship_to_applicants" : [ { } ],
+                "address" : {
+                  "street_address" : "",
+                  "zip" : "",
+                  "city" : ""
+                }
+              } ]
+            },
+            "applicants" : [ {
+              "id" : 380,
+              "first_name" : "Super",
+              "middle_name" : "k",
+              "last_name" : "Man",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Man, Super",
+            "is_initial_application" : false
+          }, {
+            "id" : 556,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "residence" : {
+              "addresses" : [ {
+                "street_address" : "2870 something else",
+                "zip" : "12345",
+                "city" : "Sacremento",
+                "state" : {
+                  "value" : "Alaska",
+                  "id" : "AK"
+                },
+                "type" : {
+                  "value" : "Residential",
+                  "id" : 1
+                }
+              }, {
+                "street_address" : "",
+                "zip" : "",
+                "city" : "",
+                "type" : {
+                  "value" : "Mailing",
+                  "id" : 3
+                }
+              } ],
+              "physical_mailing_similar" : true,
+              "residence_ownership" : {
+                "value" : "Own",
+                "id" : 1
+              },
+              "weapon_in_home" : true,
+              "body_of_water_exist" : true,
+              "body_of_water_description" : "",
+              "others_using_residence_as_mailing" : true,
+              "other_people_using_residence_as_mailing" : [ {
+                "first_name" : "Laney",
+                "middle_name" : "",
+                "last_name" : "Lilliana"
+              } ],
+              "directions_to_home" : "",
+              "home_languages" : [ {
+                "value" : "American Sign Language",
+                "id" : 1
+              }, {
+                "value" : "Armenian",
+                "id" : 3
+              } ]
+            },
+            "applicants" : [ {
+              "id" : 364,
+              "first_name" : "Geovanni",
+              "middle_name" : "",
+              "last_name" : "Moen",
+              "other_names" : [ ],
+              "date_of_birth" : "1111-11-11",
+              "driver_license_number" : "",
+              "email" : "",
+              "phones" : [ {
+                "phone_type" : {
+                  "value" : "Home",
+                  "id" : 2
+                },
+                "number" : "2012222345",
+                "preferred" : false
+              } ]
+            } ],
+            "minor_children" : [ {
+              "id" : 93,
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : "child",
+                "child_financially_supported" : true,
+                "child_adopted" : true
+              } ],
+              "date_of_birth" : "1111-11-11",
+              "gender" : {
+                "value" : "Male",
+                "id" : 1
+              }
+            }, {
+              "id" : 94,
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : "child",
+                "child_financially_supported" : true,
+                "child_adopted" : true
+              } ],
+              "date_of_birth" : "1111-11-11",
+              "gender" : {
+                "value" : "Male",
+                "id" : 1
+              }
+            } ],
+            "other_adults" : [ {
+              "id" : 133,
+              "first_name" : "Nelle",
+              "middle_name" : "",
+              "last_name" : "Balistreri",
+              "date_of_birth" : "1211-12-12",
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : "child"
+              } ]
+            }, {
+              "id" : 134,
+              "first_name" : "Astrid",
+              "middle_name" : "",
+              "last_name" : "Simonis",
+              "date_of_birth" : "1211-12-12",
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : "child"
+              } ]
+            } ],
+            "metadata" : {
+              "submit_enabled" : true
+            },
+            "resource_family_name" : "Moen, Geovanni",
+            "is_initial_application" : false
+          }, {
+            "id" : 548,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "residence" : {
+              "addresses" : [ {
+                "street_address" : "2870 something else",
+                "zip" : "12345",
+                "city" : "Sacremento",
+                "state" : {
+                  "value" : "Alaska",
+                  "id" : "AK"
+                },
+                "type" : {
+                  "value" : "Residential",
+                  "id" : 1
+                }
+              }, {
+                "street_address" : "",
+                "zip" : "",
+                "city" : "",
+                "type" : {
+                  "value" : "Mailing",
+                  "id" : 3
+                }
+              } ],
+              "physical_mailing_similar" : true,
+              "residence_ownership" : {
+                "value" : "Own",
+                "id" : 1
+              },
+              "weapon_in_home" : true,
+              "body_of_water_exist" : true,
+              "body_of_water_description" : "",
+              "others_using_residence_as_mailing" : true,
+              "other_people_using_residence_as_mailing" : [ {
+                "first_name" : "Iva",
+                "middle_name" : "",
+                "last_name" : "Charlotte"
+              } ],
+              "directions_to_home" : "",
+              "home_languages" : [ {
+                "value" : "American Sign Language",
+                "id" : 1
+              }, {
+                "value" : "Armenian",
+                "id" : 3
+              } ]
+            },
+            "applicants" : [ {
+              "id" : 355,
+              "first_name" : "Geovanni",
+              "middle_name" : "",
+              "last_name" : "Moen",
+              "other_names" : [ ],
+              "date_of_birth" : "1111-11-11",
+              "driver_license_number" : "",
+              "email" : "",
+              "phones" : [ {
+                "phone_type" : {
+                  "value" : "Home",
+                  "id" : 2
+                },
+                "number" : "2012222345",
+                "preferred" : false
+              } ],
+              "rfa1b_form" : {
+                "id" : 61,
+                "application_county" : {
+                  "value" : "Los Angeles",
+                  "id" : 19
+                },
+                "convicted_in_california" : true,
+                "convicted_in_another_state" : true,
+                "arrested_for_crime" : true,
+                "resource_family_name" : "test",
+                "applicant_first_name" : "first name",
+                "applicant_middle_name" : "",
+                "applicant_last_name" : "last name",
+                "residence_address" : {
+                  "street_address" : "2870 something else2870 something else",
+                  "zip" : "12345",
+                  "city" : "Sacremento",
+                  "state" : {
+                    "value" : "Alaska",
+                    "id" : "AK"
+                  }
+                },
+                "date_of_birth" : "1111-11-11",
+                "driver_license" : "",
+                "convicted_in_california_disclosures" : [ {
+                  "offense" : "test offense",
+                  "offense_city" : "test offense city",
+                  "when_offense_happen" : "date of offense",
+                  "offense_details" : "offense details"
+                } ],
+                "convicted_in_another_state_disclosures" : [ {
+                  "offense" : "outside test offense",
+                  "offense_city" : "outside test offense city",
+                  "when_offense_happen" : "outside date of offense",
+                  "offense_details" : "outside offense details"
+                } ],
+                "arrested_for_crime_disclosures" : [ {
+                  "offense" : "cohab test offense",
+                  "offense_city" : "cohab test offense city",
+                  "when_offense_happen" : "cohab date of offense",
+                  "offense_details" : "cohab offense details"
+                } ],
+                "metadata" : {
+                  "submit_enabled" : true
+                }
+              }
+            } ],
+            "metadata" : {
+              "submit_enabled" : true
+            },
+            "resource_family_name" : "Moen, Geovanni",
+            "is_initial_application" : false
+          }, {
+            "id" : 564,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 373,
+              "first_name" : "Geovanni",
+              "middle_name" : "",
+              "last_name" : "Moen",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Moen, Geovanni",
+            "is_initial_application" : false
+          }, {
+            "id" : 565,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 374,
+              "first_name" : "Lane",
+              "middle_name" : "k",
+              "last_name" : "Mueller",
+              "other_names" : [ ],
+              "highest_education_level" : {
+                "value" : "Some High School",
+                "id" : 2
+              },
+              "ethnicity" : {
+                "value" : "Black",
+                "id" : 4
+              },
+              "driver_license_number" : "ABC123",
+              "driver_license_state" : {
+                "value" : "Alaska",
+                "id" : "AK"
+              },
+              "email" : "test@test.com",
+              "employment" : {
+                "employer_name" : "Employer Name",
+                "occupation" : "Front End Developer",
+                "income" : 10,
+                "income_type" : {
+                  "value" : "yearly",
+                  "id" : 1
+                },
+                "physical_address" : {
+                  "street_address" : "2870 Gateway",
+                  "city" : "Sacremento",
+                  "zip" : "94403"
+                }
+              },
+              "phones" : [ {
+                "phone_type" : {
+                  "value" : "Home",
+                  "id" : 2
+                },
+                "number" : "2012222345",
+                "preferred" : false
+              } ]
+            } ],
+            "resource_family_name" : "Mueller, Lane",
+            "is_initial_application" : false
+          }, {
+            "id" : 552,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 360,
+              "first_name" : "Kimberley",
+              "middle_name" : "k",
+              "last_name" : "RReily",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "rfa1c_forms" : [ {
+              "id" : 41,
+              "application_county" : {
+                "value" : "Los Angeles",
+                "id" : 19
+              },
+              "child_identified" : false,
+              "identified_children" : [ {
+                "first_name" : "Kimberley",
+                "middle_name" : "k",
+                "last_name" : "RReily",
+                "name_suffix" : {
+                  "value" : "Sr",
+                  "id" : 6
+                },
+                "date_of_birth" : "2000-01-01",
+                "gender" : {
+                  "value" : "Male",
+                  "id" : 1
+                },
+                "relationship_to_applicants" : [ {
+                  "relationship_to_applicant_freeform" : ""
+                } ],
+                "school_grade" : {
+                  "value" : "TK",
+                  "id" : 1
+                },
+                "school_name" : "School name",
+                "school_address" : {
+                  "street_address" : "address here",
+                  "zip" : "12345",
+                  "city" : "",
+                  "state" : {
+                    "value" : "Alabama",
+                    "id" : "AL"
+                  }
+                }
+              } ]
+            } ],
+            "child_desired" : {
+              "child_identified" : true,
+              "child_in_home" : true,
+              "preferred_ages" : [ ]
+            },
+            "resource_family_name" : "RReily, Kimberley",
+            "is_initial_application" : false
+          }, {
+            "id" : 560,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 368,
+              "first_name" : "Bertha",
+              "middle_name" : "k",
+              "last_name" : "Sauer",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "minor_children" : [ {
+              "id" : 95,
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : "child",
+                "child_financially_supported" : true,
+                "child_adopted" : true
+              } ],
+              "gender" : {
+                "value" : "Male",
+                "id" : 1
+              }
+            } ],
+            "resource_family_name" : "Sauer, Bertha",
+            "is_initial_application" : false
+          }, {
+            "id" : 551,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "residence" : {
+              "addresses" : [ {
+                "street_address" : "2870 something else",
+                "zip" : "12345",
+                "city" : "Sacremento",
+                "state" : {
+                  "value" : "Alaska",
+                  "id" : "AK"
+                },
+                "type" : {
+                  "value" : "Residential",
+                  "id" : 1
+                }
+              }, {
+                "street_address" : "",
+                "zip" : "",
+                "city" : "",
+                "type" : {
+                  "value" : "Mailing",
+                  "id" : 3
+                }
+              } ],
+              "physical_mailing_similar" : true,
+              "residence_ownership" : {
+                "value" : "Own",
+                "id" : 1
+              },
+              "weapon_in_home" : true,
+              "body_of_water_exist" : true,
+              "body_of_water_description" : "",
+              "others_using_residence_as_mailing" : true,
+              "other_people_using_residence_as_mailing" : [ {
+                "first_name" : "Karson",
+                "middle_name" : "",
+                "last_name" : "Savanna"
+              } ],
+              "directions_to_home" : "",
+              "home_languages" : [ {
+                "value" : "American Sign Language",
+                "id" : 1
+              }, {
+                "value" : "Armenian",
+                "id" : 3
+              } ]
+            },
+            "applicants" : [ {
+              "id" : 359,
+              "first_name" : "Paul",
+              "middle_name" : "k",
+              "last_name" : "Smit",
+              "other_names" : [ ],
+              "date_of_birth" : "1111-11-11",
+              "driver_license_number" : "",
+              "email" : "",
+              "phones" : [ {
+                "phone_type" : {
+                  "value" : "Home",
+                  "id" : 2
+                },
+                "number" : "2012222345",
+                "preferred" : false
+              } ],
+              "rfa1b_form" : {
+                "id" : 63,
+                "application_county" : {
+                  "value" : "Los Angeles",
+                  "id" : 19
+                },
+                "resource_family_name" : "test",
+                "applicant_first_name" : "first name",
+                "applicant_middle_name" : "k",
+                "applicant_last_name" : "last name",
+                "residence_address" : {
+                  "street_address" : "2870 something else2870 something else",
+                  "zip" : "12345",
+                  "city" : "Sacremento",
+                  "state" : {
+                    "value" : "Alaska",
+                    "id" : "AK"
+                  }
+                },
+                "date_of_birth" : "1111-11-11",
+                "driver_license" : "",
+                "metadata" : {
+                  "submit_enabled" : true
+                }
+              }
+            } ],
+            "rfa1c_forms" : [ {
+              "id" : 40,
+              "application_county" : {
+                "value" : "Los Angeles",
+                "id" : 19
+              },
+              "child_identified" : false,
+              "identified_children" : [ {
+                "first_name" : "Paul",
+                "middle_name" : "k",
+                "last_name" : "Smit",
+                "date_of_birth" : "2000-01-01",
+                "relationship_to_applicants" : [ {
+                  "relationship_to_applicant_freeform" : ""
+                } ],
+                "school_name" : "",
+                "school_address" : {
+                  "street_address" : "",
+                  "zip" : "",
+                  "city" : ""
+                },
+                "child_in_home" : true
+              } ],
+              "metadata" : {
+                "submit_enabled" : true
+              }
+            } ],
+            "child_desired" : {
+              "child_identified" : true,
+              "child_in_home" : true,
+              "preferred_ages" : [ ]
+            },
+            "metadata" : {
+              "submit_enabled" : true
+            },
+            "resource_family_name" : "Smit, Paul",
+            "is_initial_application" : false
+          }, {
+            "id" : 555,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 363,
+              "first_name" : "Grover",
+              "middle_name" : "k",
+              "last_name" : "Veum",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "other_adults" : [ {
+              "id" : 132,
+              "first_name" : "Leilani",
+              "middle_name" : "",
+              "last_name" : "",
+              "relationship_to_applicants" : [ {
+                "relationship_to_applicant_freeform" : "child"
+              } ]
+            } ],
+            "resource_family_name" : "Veum, Grover",
+            "is_initial_application" : false
+          }, {
+            "id" : 550,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 358,
+              "first_name" : "Dillon",
+              "middle_name" : "",
+              "last_name" : "Wisozk",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : "",
+              "rfa1b_form" : {
+                "id" : 62,
+                "application_county" : {
+                  "value" : "Los Angeles",
+                  "id" : 19
+                },
+                "convicted_in_california" : true,
+                "convicted_in_another_state" : true,
+                "arrested_for_crime" : true,
+                "resource_family_name" : "test",
+                "applicant_first_name" : "Dillon",
+                "applicant_middle_name" : "",
+                "applicant_last_name" : "Wisozk",
+                "ssn" : "123-45-6789",
+                "driver_license" : "D123",
+                "driver_license_state" : {
+                  "value" : "Alaska",
+                  "id" : "AK"
+                },
+                "convicted_in_california_disclosures" : [ {
+                  "offense" : "test offense",
+                  "offense_city" : "test offense city",
+                  "when_offense_happen" : "date of offense",
+                  "offense_details" : "offense details"
+                } ],
+                "convicted_in_another_state_disclosures" : [ {
+                  "offense" : "outside test offense",
+                  "offense_city" : "outside test offense city",
+                  "when_offense_happen" : "outside date of offense",
+                  "offense_details" : "outside offense details"
+                } ],
+                "arrested_for_crime_disclosures" : [ {
+                  "offense" : "cohab test offense",
+                  "offense_city" : "cohab test offense city",
+                  "when_offense_happen" : "cohab date of offense",
+                  "offense_details" : "cohab offense details"
+                } ]
+              }
+            } ],
+            "child_desired" : {
+              "child_identified" : true,
+              "child_in_home" : true,
+              "preferred_ages" : [ ]
+            },
+            "resource_family_name" : "Wisozk, Dillon",
+            "is_initial_application" : false
+          }, {
+            "id" : 547,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 354,
+              "first_name" : "Dillonish",
+              "middle_name" : "",
+              "last_name" : "Wisozkish",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : "",
+              "rfa1b_form" : {
+                "id" : 60,
+                "application_county" : {
+                  "value" : "Los Angeles",
+                  "id" : 19
+                },
+                "applicant_first_name" : "Dillonish",
+                "applicant_middle_name" : "",
+                "applicant_last_name" : "Wisozkish",
+                "driver_license" : ""
+              }
+            } ],
+            "resource_family_name" : "Wisozkish, Dillonish",
+            "is_initial_application" : false
+          }, {
+            "id" : 553,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 361,
+              "first_name" : "Dillonish",
+              "middle_name" : "k",
+              "last_name" : "Wisozkish",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "rfa1c_forms" : [ {
+              "id" : 42,
+              "application_county" : {
+                "value" : "Los Angeles",
+                "id" : 19
+              },
+              "child_identified" : false
+            } ],
+            "child_desired" : {
+              "child_identified" : true,
+              "child_in_home" : true,
+              "preferred_ages" : [ ]
+            },
+            "resource_family_name" : "Wisozkish, Dillonish",
+            "is_initial_application" : false
+          }, {
+            "id" : 567,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 376,
+              "first_name" : "Lauretta",
+              "middle_name" : "k",
+              "last_name" : "Yost",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "resource_family_name" : "Yost, Lauretta",
+            "is_initial_application" : false
+          }, {
+            "id" : 558,
+            "application_county" : {
+              "value" : "Los Angeles",
+              "id" : 19
+            },
+            "applicants" : [ {
+              "id" : 367,
+              "first_name" : "Rory",
+              "middle_name" : "",
+              "last_name" : "Bartell",
+              "other_names" : [ ],
+              "driver_license_number" : "",
+              "email" : ""
+            } ],
+            "is_initial_application" : false
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:09 GMT
+- request:
+    method: post
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 201
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:09 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:09
+        GMT
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '52'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id" : 677,
+          "is_initial_application" : false
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:09 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/residence-ownership-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:10 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:10
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '144'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Own",
+            "id" : 1
+          }, {
+            "value" : "Rent",
+            "id" : 2
+          }, {
+            "value" : "Lease",
+            "id" : 3
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:10 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/ethnicity-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:10 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:10
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '419'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Alaskan Native",
+            "id" : 1
+          }, {
+            "value" : "American Indian",
+            "id" : 2
+          }, {
+            "value" : "Asian Indian",
+            "id" : 3
+          }, {
+            "value" : "Black",
+            "id" : 4
+          }, {
+            "value" : "Cambodian",
+            "id" : 5
+          }, {
+            "value" : "Caribbean",
+            "id" : 6
+          }, {
+            "value" : "Central American",
+            "id" : 7
+          }, {
+            "value" : "Chinese",
+            "id" : 8
+          }, {
+            "value" : "Declines to State",
+            "id" : 9
+          }, {
+            "value" : "Ethiopian",
+            "id" : 10
+          }, {
+            "value" : "Filipino",
+            "id" : 11
+          }, {
+            "value" : "Guamanian",
+            "id" : 12
+          }, {
+            "value" : "Hawaiian",
+            "id" : 13
+          }, {
+            "value" : "Hispanic",
+            "id" : 14
+          }, {
+            "value" : "Hmong",
+            "id" : 15
+          }, {
+            "value" : "Japanese",
+            "id" : 16
+          }, {
+            "value" : "Korean",
+            "id" : 17
+          }, {
+            "value" : "Laotian",
+            "id" : 18
+          }, {
+            "value" : "Mexican",
+            "id" : 19
+          }, {
+            "value" : "Other Asian",
+            "id" : 20
+          }, {
+            "value" : "Other Pacific Islander",
+            "id" : 21
+          }, {
+            "value" : "Other Race Unknown",
+            "id" : 22
+          }, {
+            "value" : "Polynesian",
+            "id" : 23
+          }, {
+            "value" : "Samoan",
+            "id" : 24
+          }, {
+            "value" : "South American",
+            "id" : 25
+          }, {
+            "value" : "Unable to Determine",
+            "id" : 26
+          }, {
+            "value" : "Vietnamese",
+            "id" : 27
+          }, {
+            "value" : "White - Armenian",
+            "id" : 28
+          }, {
+            "value" : "White - Central American",
+            "id" : 29
+          }, {
+            "value" : "White - European",
+            "id" : 30
+          }, {
+            "value" : "White - Middle Eastern",
+            "id" : 31
+          }, {
+            "value" : "White - Romanian",
+            "id" : 32
+          }, {
+            "value" : "White",
+            "id" : 33
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:10 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/address-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:10 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:10
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '154'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Residential",
+            "id" : 1
+          }, {
+            "value" : "Home",
+            "id" : 2
+          }, {
+            "value" : "Mailing",
+            "id" : 3
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:10 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/applicant-relationship-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:10 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:10
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '151'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Married",
+            "id" : 1
+          }, {
+            "value" : "Domestic Partnership",
+            "id" : 2
+          }, {
+            "value" : "Related (Family Member)",
+            "id" : 3
+          }, {
+            "value" : "Cohabitants",
+            "id" : 4
+          }, {
+            "value" : "Other",
+            "id" : 5
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:10 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/license-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:11 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:11
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '160'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "License",
+            "id" : 1
+          }, {
+            "value" : "Certification",
+            "id" : 2
+          }, {
+            "value" : "Approval",
+            "id" : 3
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:11 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/relationship-to-applicant-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:11 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:11
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '237'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Child",
+            "id" : 1
+          }, {
+            "value" : "Sibling",
+            "id" : 2
+          }, {
+            "value" : "Cousin",
+            "id" : 3
+          }, {
+            "value" : "Niece",
+            "id" : 4
+          }, {
+            "value" : "Nephew",
+            "id" : 5
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:11 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/name-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:11 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:11
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '187'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "AKA",
+            "id" : 1
+          }, {
+            "value" : "Doe",
+            "id" : 2
+          }, {
+            "value" : "Legal",
+            "id" : 3
+          }, {
+            "value" : "Maiden",
+            "id" : 4
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:11 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/name-suffix-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:11 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:11
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '123'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Esq",
+            "id" : 1
+          }, {
+            "value" : "II",
+            "id" : 2
+          }, {
+            "value" : "III",
+            "id" : 3
+          }, {
+            "value" : "IV",
+            "id" : 4
+          }, {
+            "value" : "JD",
+            "id" : 9
+          }, {
+            "value" : "Jr",
+            "id" : 5
+          }, {
+            "value" : "MD",
+            "id" : 7
+          }, {
+            "value" : "PhD",
+            "id" : 8
+          }, {
+            "value" : "Sr",
+            "id" : 6
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:11 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/name-prefix-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:12 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:12
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '105'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Dr.",
+            "id" : 4
+          }, {
+            "value" : "Miss",
+            "id" : 5
+          }, {
+            "value" : "Mr.",
+            "id" : 1
+          }, {
+            "value" : "Mrs.",
+            "id" : 3
+          }, {
+            "value" : "Ms.",
+            "id" : 2
+          }, {
+            "value" : "Rev.",
+            "id" : 6
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:12 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/phone-number-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:12 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:12
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '232'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Cell",
+            "id" : 1
+          }, {
+            "value" : "Home",
+            "id" : 2
+          }, {
+            "value" : "Work",
+            "id" : 3
+          }, {
+            "value" : "Alternate",
+            "id" : 4
+          }, {
+            "value" : "Fax",
+            "id" : 5
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:12 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/genders
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:12 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:12
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '104'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Male",
+            "id" : 1
+          }, {
+            "value" : "Female",
+            "id" : 2
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:12 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/education-level-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:13 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:13
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '208'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Eighth Grade or Less",
+            "id" : 1
+          }, {
+            "value" : "Some High School",
+            "id" : 2
+          }, {
+            "value" : "High School or Equivalent",
+            "id" : 3
+          }, {
+            "value" : "Technical Training beyond High School",
+            "id" : 4
+          }, {
+            "value" : "Some College or College-Level courses",
+            "id" : 5
+          }, {
+            "value" : "College Graduate",
+            "id" : 6
+          }, {
+            "value" : "Post-Graduate Education",
+            "id" : 7
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:13 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/languages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:13 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:13
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '375'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "American Sign Language",
+            "id" : 1
+          }, {
+            "value" : "Arabic",
+            "id" : 2
+          }, {
+            "value" : "Armenian",
+            "id" : 3
+          }, {
+            "value" : "Cambodian",
+            "id" : 4
+          }, {
+            "value" : "Cantonese",
+            "id" : 5
+          }, {
+            "value" : "English",
+            "id" : 6
+          }, {
+            "value" : "Farsi",
+            "id" : 7
+          }, {
+            "value" : "French",
+            "id" : 8
+          }, {
+            "value" : "Hebrew",
+            "id" : 9
+          }, {
+            "value" : "Hmong",
+            "id" : 10
+          }, {
+            "value" : "Ilacano",
+            "id" : 11
+          }, {
+            "value" : "Italian",
+            "id" : 12
+          }, {
+            "value" : "Japanese",
+            "id" : 13
+          }, {
+            "value" : "Korean",
+            "id" : 14
+          }, {
+            "value" : "Lao",
+            "id" : 15
+          }, {
+            "value" : "Mandarin",
+            "id" : 16
+          }, {
+            "value" : "Mien",
+            "id" : 17
+          }, {
+            "value" : "Other Chinese",
+            "id" : 18
+          }, {
+            "value" : "Other Non-English",
+            "id" : 19
+          }, {
+            "value" : "German",
+            "id" : 20
+          }, {
+            "value" : "Hawaiian",
+            "id" : 21
+          }, {
+            "value" : "Polish",
+            "id" : 22
+          }, {
+            "value" : "Portuguese",
+            "id" : 23
+          }, {
+            "value" : "Russian",
+            "id" : 24
+          }, {
+            "value" : "Samoan",
+            "id" : 25
+          }, {
+            "value" : "Sign Language (Not ASL)",
+            "id" : 26
+          }, {
+            "value" : "Spanish",
+            "id" : 27
+          }, {
+            "value" : "Tagalog",
+            "id" : 28
+          }, {
+            "value" : "Thai",
+            "id" : 29
+          }, {
+            "value" : "Turkish",
+            "id" : 30
+          }, {
+            "value" : "Vietnamese",
+            "id" : 31
+          }, {
+            "value" : "Indochinese",
+            "id" : 32
+          }, {
+            "value" : "Romanian",
+            "id" : 33
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:13 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/states
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:13 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:13
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '640'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Alabama",
+            "id" : "AL"
+          }, {
+            "value" : "Alaska",
+            "id" : "AK"
+          }, {
+            "value" : "American Samoa",
+            "id" : "AM"
+          }, {
+            "value" : "Arizona",
+            "id" : "AZ"
+          }, {
+            "value" : "Arkansas",
+            "id" : "AR"
+          }, {
+            "value" : "California",
+            "id" : "CA"
+          }, {
+            "value" : "Canal Zone",
+            "id" : "CZ"
+          }, {
+            "value" : "Colorado",
+            "id" : "CO"
+          }, {
+            "value" : "Connecticut",
+            "id" : "CT"
+          }, {
+            "value" : "Delaware",
+            "id" : "DE"
+          }, {
+            "value" : "District of Columbia",
+            "id" : "DC"
+          }, {
+            "value" : "Florida",
+            "id" : "FL"
+          }, {
+            "value" : "Georgia",
+            "id" : "GA"
+          }, {
+            "value" : "Guam",
+            "id" : "GU"
+          }, {
+            "value" : "Hawaii",
+            "id" : "HI"
+          }, {
+            "value" : "Idaho",
+            "id" : "ID"
+          }, {
+            "value" : "Illinois",
+            "id" : "IL"
+          }, {
+            "value" : "Indiana",
+            "id" : "IN"
+          }, {
+            "value" : "Iowa",
+            "id" : "IA"
+          }, {
+            "value" : "Kansas",
+            "id" : "KS"
+          }, {
+            "value" : "Kentucky",
+            "id" : "KY"
+          }, {
+            "value" : "Louisiana",
+            "id" : "LA"
+          }, {
+            "value" : "Maine",
+            "id" : "ME"
+          }, {
+            "value" : "Maryland",
+            "id" : "MD"
+          }, {
+            "value" : "Massachusetts",
+            "id" : "MA"
+          }, {
+            "value" : "Michigan",
+            "id" : "MI"
+          }, {
+            "value" : "Minnesota",
+            "id" : "MN"
+          }, {
+            "value" : "Mississippi",
+            "id" : "MS"
+          }, {
+            "value" : "Missouri",
+            "id" : "MO"
+          }, {
+            "value" : "Montana",
+            "id" : "MT"
+          }, {
+            "value" : "Nebraska",
+            "id" : "NE"
+          }, {
+            "value" : "Nevada",
+            "id" : "NV"
+          }, {
+            "value" : "New Hampshire",
+            "id" : "NH"
+          }, {
+            "value" : "New Jersey",
+            "id" : "NJ"
+          }, {
+            "value" : "New Mexico",
+            "id" : "NM"
+          }, {
+            "value" : "New York",
+            "id" : "NY"
+          }, {
+            "value" : "North Carolina",
+            "id" : "NC"
+          }, {
+            "value" : "North Dakota",
+            "id" : "ND"
+          }, {
+            "value" : "Northern Marianas Islands",
+            "id" : "CM"
+          }, {
+            "value" : "Ohio",
+            "id" : "OH"
+          }, {
+            "value" : "Oklahoma",
+            "id" : "OK"
+          }, {
+            "value" : "Oregon",
+            "id" : "OR"
+          }, {
+            "value" : "Pennsylvania",
+            "id" : "PA"
+          }, {
+            "value" : "Puerto Rico",
+            "id" : "PR"
+          }, {
+            "value" : "Rhode Island",
+            "id" : "RI"
+          }, {
+            "value" : "South Carolina",
+            "id" : "SC"
+          }, {
+            "value" : "South Dakota",
+            "id" : "SD"
+          }, {
+            "value" : "Tennessee",
+            "id" : "TN"
+          }, {
+            "value" : "Texas",
+            "id" : "TX"
+          }, {
+            "value" : "Trust Territories",
+            "id" : "TT"
+          }, {
+            "value" : "Utah",
+            "id" : "UT"
+          }, {
+            "value" : "Vermont",
+            "id" : "VT"
+          }, {
+            "value" : "Virginia",
+            "id" : "VA"
+          }, {
+            "value" : "Virgin Islands",
+            "id" : "VI"
+          }, {
+            "value" : "Washington",
+            "id" : "WA"
+          }, {
+            "value" : "West Virginia",
+            "id" : "WV"
+          }, {
+            "value" : "Wisconsin",
+            "id" : "WI"
+          }, {
+            "value" : "Wyoming",
+            "id" : "WY"
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:13 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/income-types
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:13 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:13
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '107'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "yearly",
+            "id" : 1
+          }, {
+            "value" : "monthly",
+            "id" : 2
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:13 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/marriage-termination-reasons
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:14 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:14
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '205'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Marriage Dissolution (Divorce)",
+            "id" : 1
+          }, {
+            "value" : "Spouse Died",
+            "id" : 2
+          }, {
+            "value" : "Domestic Partnership Dissolution",
+            "id" : 3
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:14 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/age-groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:14 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:14
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '141'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "0-3 years",
+            "id" : 1
+          }, {
+            "value" : "4-8 years",
+            "id" : 2
+          }, {
+            "value" : "9-12 years",
+            "id" : 3
+          }, {
+            "value" : "13-15 years",
+            "id" : 4
+          }, {
+            "value" : "16-18 years",
+            "id" : 5
+          }, {
+            "value" : "18-21 years",
+            "id" : 6
+          }, {
+            "value" : "No preference",
+            "id" : 7
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:14 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/sibling-groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:14 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:14
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '214'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "items" : [ {
+            "value" : "0",
+            "id" : 1
+          }, {
+            "value" : "2",
+            "id" : 2
+          }, {
+            "value" : "3",
+            "id" : 3
+          }, {
+            "value" : "4",
+            "id" : 4
+          }, {
+            "value" : "5+",
+            "id" : 5
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:14 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/dictionaries/counties
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:14 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:14
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '597'
+      connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "items" : [ {
+            "value" : "Alameda",
+            "id" : 1
+          }, {
+            "value" : "Alpine",
+            "id" : 2
+          }, {
+            "value" : "Amador",
+            "id" : 3
+          }, {
+            "value" : "Butte",
+            "id" : 4
+          }, {
+            "value" : "Calaveras",
+            "id" : 5
+          }, {
+            "value" : "Colusa",
+            "id" : 6
+          }, {
+            "value" : "Contra Costa",
+            "id" : 7
+          }, {
+            "value" : "Del Norte",
+            "id" : 8
+          }, {
+            "value" : "El Dorado",
+            "id" : 9
+          }, {
+            "value" : "Fresno",
+            "id" : 10
+          }, {
+            "value" : "Glenn",
+            "id" : 11
+          }, {
+            "value" : "Humboldt",
+            "id" : 12
+          }, {
+            "value" : "Imperial",
+            "id" : 13
+          }, {
+            "value" : "Inyo",
+            "id" : 14
+          }, {
+            "value" : "Kern",
+            "id" : 15
+          }, {
+            "value" : "Kings",
+            "id" : 16
+          }, {
+            "value" : "Lake",
+            "id" : 17
+          }, {
+            "value" : "Lassen",
+            "id" : 18
+          }, {
+            "value" : "Los Angeles",
+            "id" : 19
+          }, {
+            "value" : "Madera",
+            "id" : 20
+          }, {
+            "value" : "Marin",
+            "id" : 21
+          }, {
+            "value" : "Mariposa",
+            "id" : 22
+          }, {
+            "value" : "Mendocino",
+            "id" : 23
+          }, {
+            "value" : "Merced",
+            "id" : 24
+          }, {
+            "value" : "Modoc",
+            "id" : 25
+          }, {
+            "value" : "Mono",
+            "id" : 26
+          }, {
+            "value" : "Monterey",
+            "id" : 27
+          }, {
+            "value" : "Napa",
+            "id" : 28
+          }, {
+            "value" : "Nevada",
+            "id" : 29
+          }, {
+            "value" : "Orange",
+            "id" : 30
+          }, {
+            "value" : "Placer",
+            "id" : 31
+          }, {
+            "value" : "Plumas",
+            "id" : 32
+          }, {
+            "value" : "Riverside",
+            "id" : 33
+          }, {
+            "value" : "Sacramento",
+            "id" : 34
+          }, {
+            "value" : "San Benito",
+            "id" : 35
+          }, {
+            "value" : "San Bernardino",
+            "id" : 36
+          }, {
+            "value" : "San Diego",
+            "id" : 37
+          }, {
+            "value" : "San Francisco",
+            "id" : 38
+          }, {
+            "value" : "San Joaquin",
+            "id" : 39
+          }, {
+            "value" : "San Luis Obispo",
+            "id" : 40
+          }, {
+            "value" : "San Mateo",
+            "id" : 41
+          }, {
+            "value" : "Santa Barbara",
+            "id" : 42
+          }, {
+            "value" : "Santa Clara",
+            "id" : 43
+          }, {
+            "value" : "Santa Cruz",
+            "id" : 44
+          }, {
+            "value" : "Shasta",
+            "id" : 45
+          }, {
+            "value" : "Sierra",
+            "id" : 46
+          }, {
+            "value" : "Siskiyou",
+            "id" : 47
+          }, {
+            "value" : "Solano",
+            "id" : 48
+          }, {
+            "value" : "Sonoma",
+            "id" : 49
+          }, {
+            "value" : "Stanislaus",
+            "id" : 50
+          }, {
+            "value" : "State of California",
+            "id" : 99
+          }, {
+            "value" : "Sutter",
+            "id" : 51
+          }, {
+            "value" : "Tehama",
+            "id" : 52
+          }, {
+            "value" : "Trinity",
+            "id" : 53
+          }, {
+            "value" : "Tulare",
+            "id" : 54
+          }, {
+            "value" : "Tuolumne",
+            "id" : 55
+          }, {
+            "value" : "Ventura",
+            "id" : 56
+          }, {
+            "value" : "Yolo",
+            "id" : 57
+          }, {
+            "value" : "Yuba",
+            "id" : 58
+          } ]
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:14 GMT
+- request:
+    method: get
+    uri: https://calsapi.preint.cwds.io/rfa-1a-forms/677?expanded=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-type:
+      - application/json
+      Authorization:
+      - 40664a8a-7d76-4375-be7e-0a26c7514354
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-security-policy:
+      - default-src 'self' 'unsafe-inline';
+      content-type:
+      - application/json
+      date:
+      - Thu, 24 May 2018 00:53:15 GMT
+      set-cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-May-2018 00:53:15
+        GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - deny
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '52'
+      connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id" : 677,
+          "is_initial_application" : false
+        }
+    http_version: 
+  recorded_at: Thu, 24 May 2018 00:53:15 GMT
+recorded_with: VCR 3.0.3
