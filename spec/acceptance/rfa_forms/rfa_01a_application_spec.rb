@@ -313,9 +313,15 @@ scenario 'data does not persist in relationship between applicant when changing 
   select 'Married', from: 'relationship_type'
   expect(find_field('relationship_type').value).to eq '1'
   fill_in('date_of_relationship', with: '12/12/1211', match: :prefer_exact)
+  fill_in('place_of_relationship_city', with: 'sacramento', match: :prefer_exact)
+  select 'Alaska', from: 'place_of_relationship_state'
   expect(find_field('date_of_relationship').value).to eq '12/12/1211'
+  expect(find_field('place_of_relationship_city').value).to eq 'sacramento'
+  expect(find_field('place_of_relationship_state').value).to eq 'AK'
   select 'Domestic Partnership', from: 'relationship_type'
   expect(find_field('date_of_relationship').value).to eq ''
+  expect(find_field('place_of_relationship_city').value).to eq ''
+  expect(find_field('place_of_relationship_state').value).to eq ''
 end
 
   scenario 'validate Residence card', set_auth_header: true do
