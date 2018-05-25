@@ -124,7 +124,7 @@ describe('Verify RFA 01C child desired', function () {
 
   it('verify date of birth on blur', () => {
     let relationField = childCardComp.find('#childIdentifiedFielddate_of_birth').hostNodes()
-    relationField.simulate('blur', {target: {value: '01/01/2000'}})
+    relationField.simulate('blur', {target: {value: ''}})
     expect(setParentStateSpy).toHaveBeenCalledWith(0, 'date_of_birth', '')
   })
 
@@ -136,7 +136,7 @@ describe('Verify RFA 01C child desired', function () {
 
   it('verify date of placement on blur', () => {
     let relationField = childCardComp.find('#childIdentifiedFielddate_of_placement').hostNodes()
-    relationField.simulate('blur', {target: {value: '01/01/2000'}})
+    relationField.simulate('blur', {target: {value: ''}})
     expect(setParentStateSpy).toHaveBeenCalledWith(0, 'date_of_placement', '')
   })
 
