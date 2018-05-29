@@ -280,8 +280,6 @@ RSpec.feature 'RFA01A', js: true do
   scenario 'data does not persist in relationship between applicant when changing relationship type',  set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application'
-    expect(page).to have_content 'Rfa-01A Section Summary'
-    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('applicants[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
     fill_in('applicants[0].last_name', with: Faker::Name.last_name, match: :prefer_exact)
