@@ -65,6 +65,7 @@ export const blankRelationshipBetweenApplicantsValues = Object.freeze({
   relationship_type: null,
   date_of_relationship: '',
   place_of_relationship_city: '',
+  other_relationship: '',
   place_of_relationship_state: null
 })
 
