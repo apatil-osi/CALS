@@ -277,6 +277,7 @@ RSpec.feature 'RFA01A', js: true do
     click_button('Save Progress')
   end
 
+<<<<<<< HEAD
   scenario 'validate Relationship between Applicant appears when more than 2 applicant', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application'
@@ -308,6 +309,32 @@ RSpec.feature 'RFA01A', js: true do
     select 'Cohabitants', from: 'relationship_type'
     click_button('Save Progress')
   end
+=======
+scenario 'data does not persist in relationship between applicant when changing relationship type',  set_auth_header: true do
+  visit root_path
+  click_button 'Create RFA Application'
+  expect(page).to have_content 'Rfa-01A Section Summary'
+  page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+  expect(page).to have_content 'Applicant 1 - Information'
+  fill_in('applicants[0].first_name', with: Faker::Name.first_name, match: :prefer_exact)
+  fill_in('applicants[0].last_name', with: Faker::Name.last_name, match: :prefer_exact)
+  click_button('Add Another Applicant +')
+  fill_in('applicants[1].first_name', with: Faker::Name.first_name, match: :prefer_exact)
+  fill_in('applicants[1].last_name', with: Faker::Name.last_name, match: :prefer_exact)
+  select 'Married', from: 'relationship_type'
+  expect(find_field('relationship_type').value).to eq '1'
+  fill_in('date_of_relationship', with: '12/12/1211', match: :prefer_exact)
+  fill_in('place_of_relationship_city', with: 'sacramento', match: :prefer_exact)
+  select 'Alaska', from: 'place_of_relationship_state'
+  expect(find_field('date_of_relationship').value).to eq '12/12/1211'
+  expect(find_field('place_of_relationship_city').value).to eq 'sacramento'
+  expect(find_field('place_of_relationship_state').value).to eq 'AK'
+  select 'Domestic Partnership', from: 'relationship_type'
+  expect(find_field('date_of_relationship').value).to eq ''
+  expect(find_field('place_of_relationship_city').value).to eq ''
+  expect(find_field('place_of_relationship_state').value).to eq ''
+end
+>>>>>>> d85661231d4017b32db9ba73fddcc7781cc3d99b
 
   scenario 'validate Residence card', set_auth_header: true do
     visit root_path
