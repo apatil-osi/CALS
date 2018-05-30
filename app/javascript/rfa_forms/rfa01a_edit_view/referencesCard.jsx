@@ -71,7 +71,7 @@ export default class ReferencesCard extends React.Component {
             blurPlaceholder=''
             focusPlaceholder='(___)___-____'
             options={{
-              delimiters: ['(', ')', '-'],
+              delimiters: ['(', ') ', '-'],
               blocks: [0, 3, 3, 4],
               numericOnly: true}}
             type='text'
