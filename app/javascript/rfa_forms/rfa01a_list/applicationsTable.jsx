@@ -2,6 +2,7 @@ import React from 'react'
 import ApplicationsListRow from './applicationsListRow'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
+import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 
 export default class ApplicationsTable extends React.Component {
   render () {
@@ -13,14 +14,15 @@ export default class ApplicationsTable extends React.Component {
           <table className='table table-hover'>
             <thead>
               <tr>
-                <th scope="col">Facility ID</th>
-                <th scope="col">Facility / Family Name</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Address</th>
-                <th scope="col">City</th>
-                <th scope="col">Zip</th>
-                <th scope="col">Status</th>
-                <th scope="col">Received Date</th>
+                <th scope='col'>Facility ID</th>
+                <th scope='col'>Facility / Family Name</th>
+                <th scope='col'>Tracking Link</th>
+                <th scope='col'>Phone</th>
+                <th scope='col'>Address</th>
+                <th scope='col'>City</th>
+                <th scope='col'>Zip</th>
+                <th scope='col'>Status</th>
+                <th scope='col'>Received Date</th>
               </tr>
             </thead>
             <tbody>
@@ -31,6 +33,7 @@ export default class ApplicationsTable extends React.Component {
                       key={index}
                       familyName={application.get('resource_family_name')}
                       facilityId={application.get('id')}
+                      trackingId={application.get('tracking_id')}
                       applicantsInfo={application.get('applicants')}
                       applicationStatus={application.get('status')}
                       applicationReceivedDate={application.get('receivedDate')}
