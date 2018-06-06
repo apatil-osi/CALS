@@ -26,9 +26,9 @@ const ApplicationsListRow = ({
   applicationStatus,
   applicationReceivedDate
 }) => {
-  let trackingUrl = trackingId ?
-  urlPrefixHelper('/rfa/a01/' + facilityId + '/tracking/' + trackingId + '/edit')
-   : urlPrefixHelper('/rfa/a01/' + facilityId + '/tracking/')
+  let trackingUrl = trackingId
+    ? urlPrefixHelper('/rfa/a01/' + facilityId + '/tracking/' + trackingId + '/edit')
+    : urlPrefixHelper('/rfa/a01/' + facilityId + '/tracking/')
 
   return (
     <tr>
