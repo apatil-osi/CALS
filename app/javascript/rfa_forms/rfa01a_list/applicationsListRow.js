@@ -34,7 +34,7 @@ const ApplicationsListRow = ({
     <tr>
       <td>{facilityId}</td>
       <td><a href={urlPrefixHelper('/rfa/a01/' + facilityId + '/edit')}>{familyName}</a></td>
-      <td class='tracking'><a href={trackingUrl} >tracking</a></td>
+      <td className='tracking'><a href={trackingUrl} >tracking</a></td>
       <td>{getPhoneNumber(applicantsInfo.getIn([0, 'phones']))}</td>
       <td>{getAddress(applicationAddress, 'street_address')}</td>
       <td>{getAddress(applicationAddress, 'city')}</td>

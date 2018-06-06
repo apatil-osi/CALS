@@ -8,9 +8,110 @@ describe('Rfa01CEditView test', () => {
   beforeEach(() => {
     const props = {
       user: {county_code: 1},
-      tracking: {},
+      tracking: {
+        'id': 10,
+        'create_user_id': '0X5',
+        'create_date_time': '2018-06-05 16:12:14',
+        'update_user_id': '0X5',
+        'update_date_time': '2018-06-05 16:12:14',
+        'facility_name': '',
+        'rfa_1a_id': 744,
+        'tracking_documents': {
+          'people_documents': [ ],
+          'facility_documents': {
+            'assessments': {
+              'items': [ {
+                'notes': '',
+                'title': 'Family Evaluation',
+                'checked': false,
+                'approved_date': '',
+                'submitted_date': ''
+              }, {
+                'notes': '',
+                'title': 'Written Report',
+                'checked': false,
+                'approved_date': '',
+                'submitted_date': ''
+              }, {
+                'notes': '',
+                'title': 'Acknowledgement of Written Report',
+                'checked': false,
+                'approved_date': '',
+                'submitted_date': ''
+              } ]
+            },
+            'family_documents': {
+              'items': [ {
+                'notes': '',
+                'title': 'RFA Application (RFA 01A)',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Verification of Income',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Disclosure of Expenses',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Verification of Property',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Home Environment Checklist (RFA-03)',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Reference Letter #1',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Reference Letter #2',
+                'checked': false,
+                'received_date': ''
+              }, {
+                'notes': '',
+                'title': 'Reference Letter #3 (if applicable)',
+                'checked': false,
+                'received_date': ''
+              } ]
+            },
+            'tasks_and_trainings': {
+              'items': [ {
+                'notes': '',
+                'title': 'Attended Orientation Meeting',
+                'checked': false,
+                'completed_date': ''
+              }, {
+                'notes': '',
+                'title': 'Risk Assessment',
+                'checked': false,
+                'completed_date': ''
+              }, {
+                'notes': '',
+                'title': 'Home Environment Checklist (RFA-03)',
+                'checked': false,
+                'completed_date': ''
+              }, {
+                'notes': '',
+                'title': 'Pre-Service Training',
+                'checked': false,
+                'completed_date': ''
+              } ]
+            }
+          }
+        }
+      },
       rfa_a01_application: {
         'id': 744,
+        'tracking_id': 10,
         application_county: {
           value: 'Los Angeles',
           'id': 19

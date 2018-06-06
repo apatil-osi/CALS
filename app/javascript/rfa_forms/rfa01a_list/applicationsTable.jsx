@@ -2,7 +2,6 @@ import React from 'react'
 import ApplicationsListRow from './applicationsListRow'
 import PropTypes from 'prop-types'
 import Immutable from 'immutable'
-import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 
 export default class ApplicationsTable extends React.Component {
   render () {
