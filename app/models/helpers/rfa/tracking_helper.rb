@@ -1,5 +1,6 @@
-class Helpers::Rfa::TrackingHelper  < Helpers::ModelHelperBase
+# frozen_string_literal: true
 
+class Helpers::Rfa::TrackingHelper < Helpers::ModelHelperBase
   def model_class
     Rfa::Tracking
   end
@@ -9,6 +10,6 @@ class Helpers::Rfa::TrackingHelper  < Helpers::ModelHelperBase
   end
 
   def find_by_id(id, application_id)
-      Rfa::Tracking.find_by_id(auth_header, id, application_id)
+    Rfa::Tracking.find_by_id(auth_header, id, application_id)
   end
 end
