@@ -109,7 +109,7 @@ describe('Rfa01CEditView test', () => {
           }
         }
       },
-      rfa_a01_application: {
+      rfa_application: {
         'id': 744,
         'tracking_id': 10,
         application_county: {
