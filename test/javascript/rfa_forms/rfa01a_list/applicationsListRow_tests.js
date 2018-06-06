@@ -13,14 +13,14 @@ describe('Verify Application List Rows', () => {
       'number': '5305555555',
       'preferred': true
     },
-      {
-        'phone_type': {
-          'value': 'Cell',
-          'id': 1
-        },
-        'number': '6305555555',
-        'preferred': false
-      }]
+    {
+      'phone_type': {
+        'value': 'Cell',
+        'id': 1
+      },
+      'number': '6305555555',
+      'preferred': false
+    }]
   }])
   const address = Immutable.fromJS([
     {
