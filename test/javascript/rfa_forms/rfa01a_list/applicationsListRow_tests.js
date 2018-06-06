@@ -13,14 +13,14 @@ describe('Verify Application List Rows', () => {
       'number': '5305555555',
       'preferred': true
     },
-    {
-      'phone_type': {
-        'value': 'Cell',
-        'id': 1
-      },
-      'number': '6305555555',
-      'preferred': false
-    }]
+      {
+        'phone_type': {
+          'value': 'Cell',
+          'id': 1
+        },
+        'number': '6305555555',
+        'preferred': false
+      }]
   }])
   const address = Immutable.fromJS([
     {
@@ -60,8 +60,8 @@ describe('Verify Application List Rows', () => {
     expect(AppListViewCard.find('tr').length).toEqual(1)
   })
   it('To have array of table data', () => {
-    expect(AppListViewCard.find('td').length).toEqual(8)
+    expect(AppListViewCard.find('td').length).toEqual(9)
     expect(AppListViewCard.find('td').first().props().children).toBe('380037218')
-    expect(AppListViewCard.find('td').at(2).props().children).toBe('(530) 555-5555')
+    expect(AppListViewCard.find('td').at(3).props().children).toBe('(530) 555-5555')
   })
 })
