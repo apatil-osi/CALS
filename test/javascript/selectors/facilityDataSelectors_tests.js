@@ -1,7 +1,11 @@
 import {
   getFacilityData,
   getFacilityChildren,
-  getFacilityComplaints
+  getFacilityComplaints,
+  getFacilityAddresses,
+  getFacilityPhones,
+  getFacilityName,
+  getOtherFacilityData
 } from 'selectors/facilityDataSelectors'
 describe('facilityDataSelectors', () => {
   describe('getFacilityDataSelector', () => {
@@ -62,45 +66,162 @@ describe('facilityDataSelectors', () => {
         }
       }
       expect(getFacilityData(state)).toEqual({
-        addresses: {
-          physicalStreetAddress: '123 Main St.,',
-          physicalAddressCityZipState: ', CA ',
-          mailingStreetAddress: 'N/A',
-          mailingAddressCityZipState: ', CA '
-        },
         assigned_worker: 'N/A',
         capacity: 'N/A',
         capacity_last_changed: 'N/A',
-        county: 'RIVERSIDE',
         district_office: 'PACIFIC INLAND CR',
-        last_visit_date: 'N/A',
-        last_visit_reason: 'N/A',
         licensee_name: 'Ananya Nandi',
         license_number: '100000299',
         license_effective_date: 'N/A',
-        name: 'Little Dreams Home',
         original_application_recieved_date: 'N/A',
-        phones: {
-          primaryPhoneNumber: '(916) 299-0000',
-          alternativePhoneNumber: 'N/A'
-        },
         type: 'Foster Family Home',
         status: 'APPLICATION WITHDRWN'
       })
     })
   })
-  describe('getChildrenDataSelector', () => {
-    it('should return undefined when passed in null', () => {
+  describe('getFacilityAddressesSelector', () => {
+    it('should return address attributes with N/A when passed in null', () => {
       const state = {
         facilityReducer: {
-          facilityChildren: null
+          facility: {
+            addresses: null
+          }
         }
       }
-      expect(getFacilityChildren(state)).toEqual(null)
+      expect(getFacilityAddresses(state)).toEqual({
+        physicalStreetAddress: 'N/A',
+        physicalAddressCityZipState: 'N/A',
+        mailingStreetAddress: 'N/A',
+        mailingAddressCityZipState: 'N/A'
+      })
+    })
+    it('should return facility Addresses', () => {
+      const state = {
+        facilityReducer: {
+          facility: {
+            addresses: [ {
+              'type': 'Residential',
+              'address': {
+                'street_address': '3186 Wild Horse Court',
+                'city': 'Thousand Oaks',
+                'state': 'CA',
+                'zip_code': '91360'
+              }
+            } ]
+          }
+        }
+      }
+      expect(getFacilityAddresses(state)).toEqual({
+        physicalStreetAddress: '3186 Wild Horse Court,',
+        physicalAddressCityZipState: 'Thousand Oaks, CA 91360',
+        mailingStreetAddress: 'N/A',
+        mailingAddressCityZipState: 'N/A'
+      })
+    })
+  })
+  describe('getFacilityPhonesSelector', () => {
+    it('should return phone attributes with N/A when passed in null', () => {
+      const state = {
+        facilityReducer: {
+          facility: {
+            phones: null
+          }
+        }
+      }
+      expect(getFacilityPhones(state)).toEqual({
+        primaryPhoneNumber: 'N/A',
+        alternativePhoneNumber: 'N/A'
+      })
+    })
+    it('should return facility phones', () => {
+      const state = {
+        facilityReducer: {
+          facility: {
+            phones: [ {
+              'relation': 'primary',
+              'number': '8054926944'
+            }, {
+              'relation': 'alternate',
+              'number': '8054926944'
+            } ]
+          }
+        }
+      }
+      expect(getFacilityPhones(state)).toEqual({
+        primaryPhoneNumber: '(805) 492-6944',
+        alternativePhoneNumber: '(805) 492-6944'
+      })
+    })
+  })
+  describe('getFacilityNameSelector', () => {
+    it('should return N/A when passed in null', () => {
+      const state = {
+        facilityReducer: {
+          facility: {
+            name: null
+          }
+        }
+      }
+      expect(getFacilityName(state)).toEqual('N/A')
+    })
+    it('should return facility name', () => {
+      const state = {
+        facilityReducer: {
+          facility: {
+            name: 'Claire Dale'
+          }
+        }
+      }
+      expect(getFacilityName(state)).toEqual('Claire Dale')
+    })
+  })
+  describe('getFacilityOtherDataSelector', () => {
+    it('should return other attributes with N/A when passed in null', () => {
+      const state = {
+        facilityReducer: {
+          facility: {}
+        }
+      }
+      expect(getOtherFacilityData(state)).toEqual({
+        county: 'N/A',
+        lastVisitDate: 'N/A',
+        lastVisitReason: 'N/A'
+      })
+    })
+    it('should return other facility data', () => {
+      const state = {
+        facilityReducer: {
+          facility: {
+            county: {
+              id: '56',
+              value: 'Ventura'
+            },
+            last_visit_date: '12/22/2222',
+            last_visit_reason: 'Something'
+          }
+        }
+      }
+      expect(getOtherFacilityData(state)).toEqual({
+        county: 'Ventura',
+        lastVisitDate: '12/22/2222',
+        lastVisitReason: 'N/A'
+      })
+    })
+  })
+  describe('getChildrenDataSelector', () => {
+    it('should return empty array when passed in null', () => {
+      const state = {
+        facilityChildrenReducer: {
+          facilityChildren: {
+            'children': []
+          }
+        }
+      }
+      expect(getFacilityChildren(state)).toEqual([])
     })
     it('should return children array', () => {
       const state = {
-        facilityReducer: {
+        facilityChildrenReducer: {
           facilityChildren: {
             'children': [{
               'id': '2q6FdWU03k',
@@ -122,24 +243,23 @@ describe('facilityDataSelectors', () => {
           }
         }
       }
-      expect(getFacilityChildren(state)).toEqual({
-        children: [{
-          age: 29,
-          assigned_worker: 'Wayne Fehlberg',
-          county_of_origin: 'Modoc',
-          date_of_birth: '08/08/1988',
-          date_of_placement: '08/04/1998',
-          display_client_id: '0161-3317-6329-8000232',
-          first_name: 'boy F',
-          gender: 'M',
-          id: '2q6FdWU03k',
-          last_name: 'Cavy'
-        }]
-      })
+      expect(getFacilityChildren(state)).toEqual([{
+        age: 29,
+        assigned_worker: 'Wayne Fehlberg',
+        county_of_origin: 'Modoc',
+        date_of_birth: '08/08/1988',
+        date_of_placement: '08/04/1998',
+        display_client_id: '0161-3317-6329-8000232',
+        first_name: 'boy F',
+        gender: 'M',
+        id: '2q6FdWU03k',
+        last_name: 'Cavy'
+      }]
+      )
     })
   })
   describe('getComplaintsDataSelector', () => {
-    it('should return undefined when passed in null', () => {
+    it('should return null when passed in null', () => {
       const state = {
         facilityReducer: {
           facilityComplaints: null
