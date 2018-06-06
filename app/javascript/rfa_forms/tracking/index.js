@@ -8,7 +8,7 @@ export default class TrackingList extends React.Component {
 
     this.state = {
       user: this.props.user,
-      rfa_a01_application: this.props.rfa_a01_application,
+      rfa_application: this.props.rfa_application,
       tracking: this.props.tracking
     }
   }
@@ -17,7 +17,7 @@ export default class TrackingList extends React.Component {
     return (
       <CardsGroupLayout>
         <div>tracking id: {this.state.tracking.id}</div>
-        <div>rfa_1a_id: {this.state.rfa_a01_application.id}</div>
+        <div>rfa_1a_id: {this.state.rfa_application.id}</div>
       </CardsGroupLayout>
     )
   }

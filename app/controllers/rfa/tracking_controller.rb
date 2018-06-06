@@ -8,7 +8,7 @@ class Rfa::TrackingController < CalsBaseController
 
   def edit
     @user = user_from_session
-    @rfa_a01_application = rfa_application_helper.find_by_application_id(params[:a01_id])
+    @rfa_application = rfa_application_helper.find_by_application_id(params[:a01_id])
     @tracking = tracking_helper.find_by_id(params[:id], params[:a01_id])
   end
 
