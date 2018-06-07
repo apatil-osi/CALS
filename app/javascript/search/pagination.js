@@ -5,7 +5,6 @@ import Cleave from 'cleave.js/react'
 import {dictionaryNilSelectValue, floatToNextInt, getFromValue} from 'helpers/commonHelper.jsx'
 
 const Pagination = ({
-  paginationClassName,
   searchApiCall,
   sizeValue,
   pageNumber,
@@ -14,10 +13,10 @@ const Pagination = ({
   handlePageNumberChange,
   onPageNumberInputChange
 }) => (
-  <span className={paginationClassName}>
+  <span className='pagination'>
     <select
-      className='search_dropdown'
-      id={'dropdownFacilities_' + paginationClassName}
+      className='number_of_facilities'
+      id='numberOfFacilities'
       value={sizeValue}
       onChange={(event) => { handleDropDownAndPageNumberChange(1, parseInt(dictionaryNilSelectValue(event.target.options))); searchApiCall(getFromValue(sizeValue, 1), parseInt(dictionaryNilSelectValue(event.target.options))) }}>
       {resultsPerPage.map((noOfResults) =>
@@ -25,14 +24,12 @@ const Pagination = ({
       )}
     </select>
     <button
-      id={'previous_button_' + paginationClassName}
       disabled={getFromValue(sizeValue, pageNumber) - sizeValue < 0}
       onClick={() => { handlePageNumberChange(pageNumber - 1); searchApiCall(getFromValue(sizeValue, pageNumber - 1), sizeValue); window.scrollTo(0, 0) }}
       className='previous btn btn-default'>
       <p>&#8249;</p>
     </button>
     <Cleave
-      id='pageNumber'
       className='page_number'
       type='text'
       value={pageNumber}
@@ -43,7 +40,6 @@ const Pagination = ({
     <span>of</span>
     <span className='noOfPages'>{floatToNextInt(totalNoOfFacilities, sizeValue)}</span>
     <button
-      id={'next_button_' + paginationClassName}
       disabled={getFromValue(sizeValue, pageNumber) + sizeValue >= totalNoOfFacilities}
       onClick={() => { handlePageNumberChange(pageNumber + 1); searchApiCall(getFromValue(sizeValue, pageNumber + 1), sizeValue); window.scrollTo(0, 0) }}
       className='next btn btn-default'>
@@ -53,7 +49,6 @@ const Pagination = ({
 )
 
 Pagination.propTypes = {
-  paginationClassName: PropTypes.string,
   totalNoOfFacilities: PropTypes.number,
   sizeValue: PropTypes.number,
   pageNumber: PropTypes.oneOfType([
@@ -66,7 +61,6 @@ Pagination.propTypes = {
   handlePageNumberChange: PropTypes.func
 }
 Pagination.defaultProps = {
-  paginationClassName: '',
   totalNoOfFacilities: 0,
   pageNumber: 1,
   sizeValue: 10

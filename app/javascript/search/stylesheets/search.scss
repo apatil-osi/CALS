@@ -141,11 +141,6 @@ input[type=number]::-webkit-outer-spin-button {
   border: solid;
 }
 
-.page_number {
-  width: 60px;
-  display: inline;
-}
-
 .toggle_result {
   padding-top: 10px;
   display: inline;
@@ -154,25 +149,23 @@ input[type=number]::-webkit-outer-spin-button {
   padding-left: 0px;
 }
 
-.search_dropdown {
+.number_of_facilities {
   width: 100px;
   margin-top: -35px;
   display: inline;
 }
 
-.top_pagination {
+.pagination {
   float: right;
-}
-
-.bottom_pagination {
-  float: right;
-  margin-right: 15rem
+  margin: 0px;
 }
 
 .page_number {
   padding: 2px;
   border: ridge;
   margin-right: 6px;
+  width: 60px;
+  display: inline;
 }
 
 .noOfPages {
